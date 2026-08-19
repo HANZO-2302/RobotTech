@@ -10,7 +10,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Audiowide", "sans-serif"], // font-sans
-        display: ["Inter", "sans-serif"], // font-display (опционально)
+        display: ["Google Sans", "sans-serif"], // font-display (опционально)
+        roboto: ["Roboto", "sans-serif"], // font-roboto (опционально)
       },
     },
   },
