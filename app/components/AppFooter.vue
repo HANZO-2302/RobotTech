@@ -7,11 +7,17 @@
         >
           © 2026 RobotTech. All rights reserved.
         </p>
-        <img
+        <a
+          href="https://hanzo23.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        <NuxtImg
           src="/images/ByHanzo.webp"
-          alt="Footer Background"
-          class="h-5 "
+          alt="Footer by Hanzo"
+          class="h-6 "
         />
+      </a>
       </div>
       <!-- </div> -->
     </footer>
