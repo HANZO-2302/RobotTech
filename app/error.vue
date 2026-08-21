@@ -19,14 +19,20 @@ const coordinates = {
 </script>
 
 <template>
-  <div
-    class="relative min-h-screen overflow-hidden bg-[#05090A] text-red-500"
-  >
+  <div class="relative min-h-screen overflow-hidden bg-[#05090A] text-red-500">
     <!-- ================================================= -->
     <!-- TERMINATOR IMAGE -->
     <!-- ================================================= -->
 
-    <div class="absolute inset-y-0 right-0 h-dvh w-auto">
+    <motion.div
+      :initial="{  scale: 0.7, skewY: 25, opacity: 0 }"
+      :animate="{  scale: 1, skewY: 0, opacity: 1 }"
+      :transition="{
+        duration: 3,
+        ease: 'easeInOut',
+      }"
+      class="absolute inset-y-0 right-0 h-dvh w-auto"
+    >
       <!-- Left cinematic fade -->
       <div
         class="absolute inset-y-0 left-0 z-10 w-[75%] bg-gradient-to-r from-[#05090A] via-[#05090A]/95 to-transparent"
@@ -41,13 +47,12 @@ const coordinates = {
       <div
         class="absolute inset-x-0 top-0 z-10 h-[20%] bg-gradient-to-b from-[#05090A]/50 to-transparent"
       />
-
-      <img
+      <NuxtImg
         src="/images/404.webp"
         alt="Robot Error"
         class="h-full w-full object-cover"
       />
-    </div>
+    </motion.div>
 
     <!-- ================================================= -->
     <!-- HUD -->
@@ -57,7 +62,6 @@ const coordinates = {
       class="relative z-20 flex min-h-screen items-center px-6 sm:px-10 lg:px-20"
     >
       <div class="w-full max-w-xl">
-
         <!-- TOP SYSTEM LABEL -->
         <motion.div
           :initial="{ opacity: 0, x: -60 }"
@@ -99,14 +103,13 @@ const coordinates = {
             delay: 0.15,
             ease: [0.16, 1, 0.3, 1],
           }"
-          class="text-[6rem] font-black leading-none  sm:text-[8rem] lg:text-[10rem]"
+          class="text-[6rem] font-black leading-none sm:text-[8rem] lg:text-[10rem]"
         >
           {{ error.status }}
         </motion.h1>
 
         <!-- SYSTEM STATUS -->
         <div class="mt-5 space-y-2 font-mono text-[10px] sm:text-xs">
-
           <motion.div
             v-for="(item, index) in diagnostics"
             :key="item.label"
@@ -122,21 +125,16 @@ const coordinates = {
               {{ item.label }}
             </span>
 
-            <span class="text-red-500/70">
-              :
-            </span>
+            <span class="text-red-500/70"> : </span>
 
             <span
               :class="
-                item.value === 'NOT FOUND'
-                  ? 'text-red-500'
-                  : 'text-red-500/60'
+                item.value === 'NOT FOUND' ? 'text-red-500' : 'text-red-500/60'
               "
             >
               {{ item.value }}
             </span>
           </motion.div>
-
         </div>
 
         <!-- DIVIDER -->
@@ -160,9 +158,7 @@ const coordinates = {
           }"
           class="font-mono text-[9px] leading-5 tracking-[0.15em] text-red-500/45 sm:text-[10px]"
         >
-          <div>
-            TARGET COORDINATES
-          </div>
+          <div>TARGET COORDINATES</div>
 
           <div class="flex gap-5">
             <span>X: {{ coordinates.x }}</span>
@@ -245,8 +241,8 @@ const coordinates = {
       style="
         background-image: repeating-linear-gradient(
           to bottom,
-          rgba(255,255,255,0.5) 0px,
-          rgba(255,255,255,0.5) 1px,
+          rgba(255, 255, 255, 0.5) 0px,
+          rgba(255, 255, 255, 0.5) 1px,
           transparent 1px,
           transparent 4px
         );
@@ -283,7 +279,6 @@ const coordinates = {
     </motion.div>
   </div>
 </template>
-
 
 <!-- <script setup lang="ts">
 import type { NuxtError } from "#app";

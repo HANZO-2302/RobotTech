@@ -7,5 +7,6 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "motion-v/nuxt",
     "nuxt-swiper",
+    "@nuxt/image",
   ],
 });

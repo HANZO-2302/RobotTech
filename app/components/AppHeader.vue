@@ -14,7 +14,9 @@
 
       <!-- Десктоп-навигация -->
       <nav class="hidden sm:block">
-        <ul class="li-hheader flex items-center space-x-10 md:space-x-16 lg:space-x-36 text-sm font-medium">
+        <ul
+          class="li-hheader flex items-center space-x-10 md:space-x-16 lg:space-x-36 text-sm font-medium"
+        >
           <li><NuxtLink to="/">EVENTS</NuxtLink></li>
           <li><NuxtLink to="/speakers">SPEAKERS</NuxtLink></li>
           <li><NuxtLink to="/contacts">CONTACT</NuxtLink></li>
@@ -64,11 +66,25 @@
         :transition="{ duration: 0.3, ease: 'easeInOut' }"
         class="mt-2 overflow-hidden rounded-xl bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% sm:hidden"
       >
-        <ul class="li-hheader flex flex-col items-center gap-6 py-6 text-sm font-medium text-white">
-          <li><NuxtLink to="/" @click="isMenuOpen = false">EVENTS</NuxtLink></li>
-          <li><NuxtLink to="/speakers" @click="isMenuOpen = false">SPEAKERS</NuxtLink></li>
-          <li><NuxtLink to="/contacts" @click="isMenuOpen = false">CONTACT</NuxtLink></li>
-          <li><NuxtLink to="/services" @click="isMenuOpen = false">SIGN IN</NuxtLink></li>
+        <ul
+          class="li-hheader flex flex-col items-center gap-6 py-6 text-sm font-medium text-white"
+        >
+          <li>
+            <NuxtLink to="/" @click="isMenuOpen = false">EVENTS</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/speakers" @click="isMenuOpen = false"
+              >SPEAKERS</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/contacts" @click="isMenuOpen = false"
+              >CONTACT</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/error" @click="isMenuOpen = false">SIGN IN</NuxtLink>
+          </li>
         </ul>
       </motion.nav>
     </AnimatePresence>
@@ -76,35 +92,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'motion-v'
+import { ref } from "vue";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "motion-v";
 
-const isMenuOpen = ref(false)
-const isHidden = ref(false)
+const isMenuOpen = ref(false);
+const isHidden = ref(false);
 
-const { scrollY } = useScroll()
-let lastScrollY = 0
-const SCROLL_THRESHOLD = 80 // не прячем хедер пока не проскроллили ниже этой точки
+const { scrollY } = useScroll();
+let lastScrollY = 0;
+const SCROLL_THRESHOLD = 80; // не прячем хедер пока не проскроллили ниже этой точки
 
-useMotionValueEvent(scrollY, 'change', (latest) => {
+useMotionValueEvent(scrollY, "change", (latest) => {
   // не скрываем хедер, пока открыто мобильное меню
   if (isMenuOpen.value) {
-    lastScrollY = latest
-    return
+    lastScrollY = latest;
+    return;
   }
 
-  const diff = latest - lastScrollY
+  const diff = latest - lastScrollY;
 
   if (latest < SCROLL_THRESHOLD) {
-    isHidden.value = false
+    isHidden.value = false;
   } else if (diff > 4) {
-    isHidden.value = true // скролл вниз — прячем
+    isHidden.value = true; // скролл вниз — прячем
   } else if (diff < -4) {
-    isHidden.value = false // скролл вверх — показываем
+    isHidden.value = false; // скролл вверх — показываем
   }
 
-  lastScrollY = latest
-})
+  lastScrollY = latest;
+});
 </script>
 
 <style scoped>
@@ -112,7 +133,6 @@ useMotionValueEvent(scrollY, 'change', (latest) => {
   text-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
 }
 </style>
-
 
 <!-- <template>
   <div>
