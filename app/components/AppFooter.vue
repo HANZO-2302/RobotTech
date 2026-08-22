@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer class="relative w-full bottom-0  bg-zinc-950 mx-auto py-2">
+    <footer class="relative w-full bottom-0 h-16 bg-zinc-950 mx-auto py-2">
       <div class="flex flex-col items-center justify-center mx-auto ">
         <p
           class="font-extralight tracking-normal text-center text-xs text-zinc-500 "
@@ -15,7 +15,7 @@
         <NuxtImg
           src="/images/ByHanzo.webp"
           alt="Footer by Hanzo"
-          class="h-6 "
+          class="h-6 mt-2 "
         />
       </a>
       </div>
