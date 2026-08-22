@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex min-h-svh h-auto flex-col items-center bg-[#303030] overflow-x-hidden px-4 overflow-y-scroll"
+    class="relative flex min-h-[calc(100svh-4rem)] h-auto flex-col items-center bg-[#303030] overflow-x-hidden px-4 overflow-y-scroll"
   >
     <!-- Layout grid -->
     <!-- <div
