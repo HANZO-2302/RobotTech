@@ -19,7 +19,7 @@ const coordinates = {
 </script>
 
 <template>
-  <div class="relative min-h-[calc(100svh_-_1rem)] overflow-hidden bg-[#05090A] text-red-500">
+  <div class="relative min-h-[calc(100svh_-_3rem)] overflow-hidden bg-[#05090A] text-red-500">
     <!-- ================================================= -->
     <!-- TERMINATOR IMAGE -->
     <!-- ================================================= -->
