@@ -19,7 +19,7 @@ const coordinates = {
 </script>
 
 <template>
-  <div class="relative min-h-svh overflow-hidden bg-[#05090A] text-red-500">
+  <div class="relative min-h-[calc(100svh_-_1rem)] overflow-hidden bg-[#05090A] text-red-500">
     <!-- ================================================= -->
     <!-- TERMINATOR IMAGE -->
     <!-- ================================================= -->
@@ -59,7 +59,7 @@ const coordinates = {
     <!-- ================================================= -->
 
     <div
-      class="relative z-20 flex min-h-screen items-center px-6 sm:px-10 lg:px-20"
+      class="relative z-20 flex min-h-svh items-center px-6 sm:px-10 lg:px-20"
     >
       <div class="w-full max-w-xl">
         <!-- TOP SYSTEM LABEL -->

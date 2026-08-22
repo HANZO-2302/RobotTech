@@ -98,25 +98,25 @@ const cardVariants = {
 <template>
   <section
     id="speakers"
-    class="relative bg-[#292929] py-20 text-white sm:py-24 lg:py-32"
+    class="relative min-h-[calc(100vh-4rem)] bg-[#292929] py-20 text-white sm:py-24 lg:py-32"
   >
 
-    <div class="relative mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12">
+    <div class="relative mx-auto w-full max-w-7xl px-4">
       <!-- Header -->
       <motion.div
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
-        class="mb-12 ml-auto max-w-[1040px] sm:mb-16 lg:mb-24"
+        class="mb-12 mx-auto sm:mb-16 lg:mb-24"
       >
         <h2
-          class="font-sans text-[clamp(2rem,5vw,3rem)] font-medium uppercase leading-[0.95] tracking-[-0.04em]"
+          class="font-sans text-[clamp(2rem,10vw,5rem)] font-medium uppercase leading-[0.95] tracking-[-0.04em] border"
         >
           The Future of Robotics & AI
         </h2>
 
         <p
-          class="mt-3 max-w-2xl text-base font-light leading-relaxed text-white/80 sm:text-lg lg:text-xl"
+          class="mt-3 text-base font-light leading-relaxed text-white/80 sm:text-lg lg:text-xl border"
         >
           Engineers, founders and AI researchers shaping the industry today
         </p>

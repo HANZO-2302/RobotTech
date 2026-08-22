@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex min-h-[calc(100svh-4rem)] h-auto flex-col items-center bg-[#303030] overflow-x-hidden px-4 overflow-y-scroll"
+    class="relative flex min-h-[calc(100vh-4rem)] h-auto flex-col items-center bg-[#303030] overflow-x-hidden px-4 overflow-y-scroll"
   >
     <!-- Layout grid -->
     <!-- <div
@@ -17,7 +17,7 @@
     </div>
 
     <h1
-      class="relative font-bold top-[8rem] text-[calc(2rem+4vw)] leading-[0.95] tracking-wide text-center text-[#F6F6F6]"
+      class="relative font-bold top-[9rem] text-[clamp(2.6rem,13vw,8rem)] leading-[0.95] tracking-wide text-center text-[#F6F6F6]"
     >
       RobotTech <br />
       Conference
@@ -25,16 +25,16 @@
 
     <h2
       relative
-      class="relative top-[10rem] font-medium text-[calc(1rem+0.5vw)] text-center text-[#F6F6F6] uppercase"
+      class="relative top-[12rem] font-medium text-[clamp(1rem,2vw,2rem)] text-center text-[#F6F6F6] uppercase"
     >
       Connect with engineers, founders, and AI leaders <br />
       shaping the next generation of robotics.
     </h2>
 
     <button
-      class="relative group top-[13rem] max-w-sm w-full h-20 bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% rounded-lg flex justify-center items-center gap-4"
+      class="relative group top-[14rem] max-w-sm w-full h-20 bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% rounded-lg flex justify-center items-center gap-4"
     >
-      <NuxtLink to="/speakers" class="relative text-xl text-white group">
+      <NuxtLink to="/speakers" class="relative text-[clamp(1.2rem,2vw,1.5rem)] text-white group">
         Join Event
         <span
           class="absolute left-0 -bottom-1 h-[2px] w-full bg-white scale-x-0 origin-left transition-transform duration-150 group-hover:scale-x-100"
@@ -42,12 +42,12 @@
       </NuxtLink>
     </button>
     <h3
-      class="relative font-roboto top-[16rem] font-extralight text-xl text-center text-[#F6F6F6]"
+      class="relative font-roboto top-[16rem] font-extralight text-[clamp(1.2rem,2vw,1.5rem)] text-center text-[#F6F6F6]"
     >
       International Conference
     </h3>
     <h3
-      class="relative top-[16.3rem] font-roboto font-extralight text-sm text-center text-[#F6F6F6]"
+      class="relative top-[16.3rem] font-roboto font-extralight text-[clamp(0.8rem,3vw,1rem)] text-center text-[#F6F6F6]"
     >
       · Berlin · May 2026 ·
     </h3>
