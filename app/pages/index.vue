@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative min-h-[100svh] flex flex-col items-center overflow-hidden bg-[#303030]"
+    class="relative min-h-dvh flex flex-col items-center overflow-hidden bg-[#303030]"
   >
     <!-- Background -->
     <div
