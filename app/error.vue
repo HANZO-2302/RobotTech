@@ -184,7 +184,7 @@ const coordinates = {
           </div>
 
           <p
-            class="mb-7 max-w-md font-mono text-xs uppercase leading-6 tracking-[0.15em] text-red-500/50"
+            class="mb-2 max-w-md font-mono text-xs uppercase leading-6 tracking-[0.15em] text-red-500/50"
           >
             The requested target does not exist.
             <br />
