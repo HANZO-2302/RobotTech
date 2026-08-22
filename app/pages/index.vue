@@ -1,55 +1,65 @@
 <template>
   <div
-    class="relative flex min-h-[calc(100vh-4rem)] h-auto flex-col items-center bg-[#303030] overflow-x-hidden px-4 overflow-y-scroll"
+    class="relative min-h-[100svh] flex flex-col items-center overflow-hidden bg-[#303030] px-4 border"
   >
-    <!-- Layout grid -->
-    <!-- <div
-      class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
-    ></div> -->
+    <!-- Background -->
     <div
-      class="absolute -right-[6rem] bottom-0 z-0 w-full sm:w-auto pointer-events-none"
+      class="pointer-events-none absolute -right-[6rem] bottom-0 z-0 w-full sm:w-auto"
     >
       <img
         src="/images/Dot_robottech_aligned.svg"
         alt=""
-        class="block object-contain object-bottom w-full h-auto sm:h-screen opacity-40"
+        class="block h-auto w-full object-contain object-bottom opacity-40 sm:h-screen"
       />
     </div>
 
-    <h1
-      class="relative font-bold top-[9rem] text-[clamp(2.6rem,13vw,8rem)] leading-[0.95] tracking-wide text-center text-[#F6F6F6]"
-    >
-      RobotTech <br />
-      Conference
-    </h1>
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center text-center">
+      <h1
+        class="font-bold mt-32 text-[clamp(2.6rem,13vw,8rem)] leading-[0.95] tracking-wide text-[#F6F6F6]"
+      >
+        RobotTech
+        <br />
+        Conference
+      </h1>
 
-    <h2
-      relative
-      class="relative top-[12rem] font-medium text-[clamp(1rem,2vw,2rem)] text-center text-[#F6F6F6] uppercase"
-    >
-      Connect with engineers, founders, and AI leaders <br />
-      shaping the next generation of robotics.
-    </h2>
+      <h2
+        class="mt-12 font-medium text-[clamp(1rem,2vw,2rem)] uppercase text-[#F6F6F6]"
+      >
+        Connect with engineers, founders, and AI leaders
+        <br class="hidden sm:block" />
+        shaping the next generation of robotics.
+      </h2>
 
-    <button
-      class="relative group top-[14rem] max-w-sm w-full h-20 bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% rounded-lg flex justify-center items-center gap-4"
-    >
-      <NuxtLink to="/speakers" class="relative text-[clamp(1.2rem,2vw,1.5rem)] text-white group">
-        Join Event
-        <span
-          class="absolute left-0 -bottom-1 h-[2px] w-full bg-white scale-x-0 origin-left transition-transform duration-150 group-hover:scale-x-100"
-        ></span>
-      </NuxtLink>
-    </button>
-    <h3
-      class="relative font-roboto top-[16rem] font-extralight text-[clamp(1.2rem,2vw,1.5rem)] text-center text-[#F6F6F6]"
-    >
-      International Conference
-    </h3>
-    <h3
-      class="relative top-[16.3rem] font-roboto font-extralight text-[clamp(0.8rem,3vw,1rem)] text-center text-[#F6F6F6]"
-    >
-      · Berlin · May 2026 ·
-    </h3>
+      <button
+        class="group mt-12 flex h-20 w-full max-w-sm items-center justify-center gap-4 rounded-lg bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150%"
+      >
+        <NuxtLink
+          to="/speakers"
+          class="relative text-[clamp(1.2rem,2vw,1.5rem)] text-white"
+        >
+          Join Event
+
+          <span
+            class="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white transition-transform duration-150 group-hover:scale-x-100"
+          />
+        </NuxtLink>
+      </button>
+
+      <h3
+        class="mt-10 font-roboto text-center text-[clamp(1.2rem,2vw,1.5rem)] font-extralight text-[#F6F6F6]"
+      >
+        International Conference
+      </h3>
+
+      <h3
+        class="mt-2 font-roboto text-center text-[clamp(0.8rem,3vw,1rem)] font-extralight text-[#F6F6F6]"
+      >
+        · Berlin · May 2026 ·
+      </h3>
+    </div>
+    <div class="absolute bottom-0 w-full">
+      <AppFooter />
+    </div>
   </div>
 </template>

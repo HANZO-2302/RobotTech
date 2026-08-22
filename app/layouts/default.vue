@@ -1,7 +1,11 @@
 <template>
-  <div>
+  <div class="min-h-svh flex flex-col">
     <AppHeader />
-    <NuxtPage />
-    <AppFooter />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- <AppFooter /> -->
   </div>
 </template>

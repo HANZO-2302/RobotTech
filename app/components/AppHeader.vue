@@ -2,7 +2,7 @@
   <motion.header
     :animate="{ y: isHidden ? '-180%' : '0%' }"
     :transition="{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }"
-    class="fixed top-4 md:top-8 left-0 right-0 z-50 mx-auto px-4 w-full max-w-7xl"
+    class="fixed mt-4 md:mt-8 left-0 right-0 z-50 mx-auto px-4 w-full max-w-7xl"
   >
     <div
       class="relative flex items-center justify-between sm:justify-center rounded-xl bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% px-5 py-4 text-white shadow-lg shadow-black/10"

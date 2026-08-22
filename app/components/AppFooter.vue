@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer class="relative w-full bottom-0 h-16 bg-zinc-900 mx-auto py-2">
+    <footer class="relative w-full h-16 bg-zinc-900 mx-auto py-2 shrink-0">
       <div class="flex flex-col items-center justify-center mx-auto ">
         <p
           class="font-extralight tracking-normal text-center text-xs text-zinc-500 "

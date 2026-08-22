@@ -98,7 +98,7 @@ const cardVariants = {
 <template>
   <section
     id="speakers"
-    class="relative min-h-[calc(100vh-4rem)] bg-[#292929] py-20 text-white sm:py-24 lg:py-32"
+    class="relative bg-[#292929] py-20 text-white sm:py-24 lg:py-32"
   >
 
     <div class="relative mx-auto w-full max-w-7xl px-4">
