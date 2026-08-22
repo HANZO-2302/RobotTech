@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative min-h-dvh flex flex-col items-center overflow-hidden bg-[#303030]"
+    class="relative min-h-svh flex flex-col items-center overflow-hidden bg-[#303030]"
   >
     <!-- Background -->
     <div
@@ -53,13 +53,13 @@
         </h3>
 
         <h3
-          class="mt-2 font-roboto text-center text-[clamp(0.8rem,3vw,1rem)] font-extralight text-[#F6F6F6]"
+          class="mt-0 font-roboto text-center text-[clamp(0.8rem,3vw,1rem)] font-extralight text-[#F6F6F6]"
         >
           · Berlin · May 2026 ·
         </h3>
       </div>
     </div>
-    <div class="relative bottom-0 w-full">
+    <div class="relative mt-0 bottom-0 w-full">
       <AppFooter />
     </div>
   </div>
