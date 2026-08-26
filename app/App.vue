@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 function setViewportUnit() {
   document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
 }
@@ -22,4 +22,4 @@ if (import.meta.client) {
     window.removeEventListener('orientationchange', setViewportUnit)
   })
 }
-</script>
+</script> -->
