@@ -8,8 +8,12 @@
       class="relative flex items-center justify-between sm:justify-center rounded-xl bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% px-5 py-4 text-white shadow-lg shadow-black/10"
     >
       <!-- Логотип (виден только на мобиле, где нав скрыт) -->
-      <NuxtLink to="/" class="text-sm font-semibold tracking-wide sm:hidden">
-        LOGO
+      <NuxtLink to="/" class="text-sm font-semibold tracking-wide">
+        <NuxtImg
+          src="/images/logo.png"
+          alt="Footer by Hanzo"
+          class=" absolute left-5 -translate-x-0 -translate-y-1/2  h-auto w-8 drop-shadow-[0_2px_1px_rgba(0,0,0,0.7)]  "
+        />
       </NuxtLink>
 
       <!-- Десктоп-навигация -->
