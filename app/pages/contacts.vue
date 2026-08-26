@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-dvh flex flex-col items-center justify-center text-center gap-4 bg-[#303030]"
+    class="min-h-[calc(var(--vh,1vh)*100)] flex flex-col items-center justify-center text-center gap-4 bg-[#303030]"
   >
   <!-- Layout grid -->
     <div

@@ -1,10 +1,10 @@
 <template>
   <div
-    class="relative min-h-svh flex flex-col items-center overflow-hidden bg-[#303030]"
+    class="relative flex flex-1 flex-col items-center justify-center overflow-hidden"
   >
     <!-- Background -->
     <div
-      class="pointer-events-none absolute right-0 bottom-16 z-0 w-full sm:w-auto"
+      class="pointer-events-none absolute right-0 bottom-0 z-0 w-full sm:w-auto"
     >
       <img
         src="/images/Dot_robottech_aligned.svg"
@@ -12,7 +12,8 @@
         class="block h-auto w-full object-contain object-bottom opacity-40 sm:h-screen"
       />
     </div>
-    <div class="flex-1 px-4">
+
+    <div class="w-full px-4">
       <!-- Content -->
       <div class="relative z-10 flex flex-col items-center text-center">
         <h1
@@ -58,9 +59,6 @@
           · Berlin · May 2026 ·
         </h3>
       </div>
-    </div>
-    <div class="relative mt-0 bottom-0 w-full">
-      <AppFooter />
     </div>
   </div>
 </template>

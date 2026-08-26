@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col">
+  <div class="relative flex min-h-[calc(var(--vh,1vh)*100)] flex-col bg-[#303030]">
     <AppHeader />
 
-    <main class="">
+    <main class="flex flex-1 flex-col">
       <slot />
     </main>
 
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>
