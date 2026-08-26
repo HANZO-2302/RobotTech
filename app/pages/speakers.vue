@@ -55,7 +55,7 @@ const cardVariants = {
       :initial="sectionVariants.hidden"
       :whileInView="sectionVariants.visible"
       :viewport="{ once: true, amount: 0.25 }"
-      class="mx-auto mt-24 sm:mb-16 lg:mb-24"
+      class="mx-auto mt-28"
     >
       <h2
         class="font-sans text-[clamp(2rem,10vw,4.5rem)] text-white/80 font-medium uppercase leading-[0.95] tracking-[-0.04em]"
@@ -64,7 +64,7 @@ const cardVariants = {
       </h2>
 
       <p
-        class="mt-3 text-sm font-light leading-relaxed text-white/80 sm:text-lg lg:text-xl"
+        class="mt-3 text-[clamp(0.2rem,5vw,1.8rem)] font-roboto leading-relaxed text-white/80"
       >
         Engineers, founders and AI researchers shaping the industry today
       </p>
@@ -93,7 +93,7 @@ const cardVariants = {
     </div>
 
     <!-- Mobile -->
-    <div class="relative w-full -translate-y-8 sm:hidden">
+    <div class="relative w-full -translate-y-12   sm:hidden">
       <Swiper
         :modules="modules"
         :slides-per-view="1"
@@ -141,10 +141,10 @@ const cardVariants = {
         delay: 0.25,
         ease: 'easeOut',
       }"
-      class="mt-12 flex flex-col items-start gap-4 sm:mt-16 lg:ml-0 lg:mt-20"
+      class="mb-8 -mt-8 flex flex-col items-start gap-4 sm:mt-16 lg:ml-0 lg:mt-4"
     >
       <span
-        class="text-sm font-medium uppercase tracking-[0.04em] text-white sm:text-base"
+        class="text-sm font-sans uppercase tracking-[0.04em] text-white sm:text-base"
       >
         5+ Industry Leaders
       </span>
@@ -164,7 +164,7 @@ const cardVariants = {
         class="group relative h-[64px] w-full max-w-[386px] overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)] sm:h-[78px]"
       >
         <span
-          class="relative z-10 font-display text-xl font-medium uppercase tracking-wide text-white sm:text-2xl"
+          class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] tracking-wide text-white"
         >
           View Speakers
         </span>
@@ -188,7 +188,7 @@ const cardVariants = {
 
 .swiper-pagination {
   position: absolute;
-  bottom: 12px; /* отступ от низа слайдов */
+  bottom: 1px; /* отступ от низа слайдов */
   left: 0;
   right: 0;
   display: flex;
