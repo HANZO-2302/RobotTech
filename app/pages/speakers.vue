@@ -118,14 +118,14 @@ const cardVariants = {
     <!-- Arrows -->
     <button
       type="button"
-      class="speakers-prev absolute left-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white"
+      class="sm:hidden speakers-prev absolute left-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white"
       aria-label="Previous slide"
     >
       ‹
     </button>
     <button
       type="button"
-      class="speakers-next absolute right-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white"
+      class=" sm:hidden speakers-next absolute right-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white"
       aria-label="Next slide"
     >
       ›
