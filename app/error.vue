@@ -178,7 +178,7 @@ const coordinates = {
           class="mt-7"
         >
           <div
-            class="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-red-500/60"
+            class="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-red-500/90"
           >
             > SYSTEM FAILURE
           </div>
@@ -194,7 +194,7 @@ const coordinates = {
           <!-- HOME BUTTON -->
           <NuxtLink
             to="/"
-            class="group inline-flex items-center gap-3 border border-red-500/30 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.25em] text-red-500 transition-all duration-300 hover:border-red-500 hover:bg-red-500/5"
+            class="group mt-3 inline-flex items-center gap-3 border border-red-500/30 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.25em] text-red-500 transition-all duration-300 hover:border-red-500 hover:bg-red-500/5"
           >
             <span
               class="transition-transform duration-300 group-hover:translate-x-1"
@@ -257,7 +257,7 @@ const coordinates = {
       :initial="{ opacity: 0 }"
       :animate="{ opacity: 1 }"
       :transition="{ delay: 2 }"
-      class="pointer-events-none absolute bottom-6 left-6 z-30 font-mono text-[8px] tracking-[0.2em] text-red-500/30 sm:left-10"
+      class="pointer-events-none absolute bottom-6 left-6 z-30 font-mono text-[8px] tracking-[0.2em] text-red-500/70 sm:left-10"
     >
       SYSTEM // 800
       <br />

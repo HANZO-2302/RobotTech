@@ -98,7 +98,7 @@ const cardVariants = {
 <template>
   <section
     id="speakers"
-    class="relative bg-[#292929] py-20 text-white sm:py-24 lg:py-32"
+    class="relative flex flex-1 flex-col items-center justify-center overflow-hidden"
   >
 
     <div class="relative mx-auto w-full max-w-7xl px-4">
