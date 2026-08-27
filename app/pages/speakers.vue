@@ -181,7 +181,7 @@ const cardVariants = {
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
    ========================================== */
-   .swiper-pagination {
+.swiper-pagination {
   position: relative;
   bottom: auto;
   left: auto;
@@ -197,27 +197,22 @@ const cardVariants = {
   width: 10px;
   height: 10px;
   margin: 0;
-  border-radius: 50px;
+  border-radius: 9999px;
   background: #b1b1b1;
   opacity: 0.5;
   cursor: pointer;
 
-  /* анимируем transform/opacity вместо width — не триггерит layout */
-  transform: scaleX(1);
-  transform-origin: center;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out, background-color 0.3s ease-out;
+  transition: width 0.3s ease-out, opacity 0.3s ease-out, background-color 0.3s ease-out;
 
-  /* подсказка браузеру заранее подготовить слой — критично для iOS Safari */
-  will-change: transform, opacity;
-  -webkit-transform: translateZ(0); /* форсируем GPU-слой на старых iOS */
+  will-change: width, opacity;
+  -webkit-transform: translateZ(0);
   backface-visibility: hidden;
 }
 
 .swiper-pagination-bullet-active {
-  width: 10px; /* базовая ширина не меняется */
-  transform: scaleX(2.4); /* 10px * 2.4 = 24px, как у тебя было */
+  width: 24px;
   opacity: 1;
-  background: #1f8a71;
+  background: #018ff4;
 }
 
 </style>
