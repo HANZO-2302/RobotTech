@@ -130,6 +130,7 @@ const cardVariants = {
     >
       ›
     </button>
+    <div className="swiper-pagination mt-5" />
 
     <!-- Bottom CTA -->
     <motion.div
@@ -180,21 +181,16 @@ const cardVariants = {
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
    ========================================== */
-.swiper-pagination-bullet {
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-
-.swiper-pagination {
-  position: absolute;
-  bottom: 1px; /* отступ от низа слайдов */
-  left: 0;
-  right: 0;
+   .swiper-pagination {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2px;
+  width: 100%;
 }
 
 .swiper-pagination-bullet {
@@ -204,11 +200,24 @@ const cardVariants = {
   border-radius: 50px;
   background: #b1b1b1;
   opacity: 0.5;
+  cursor: pointer;
+
+  /* анимируем transform/opacity вместо width — не триггерит layout */
+  transform: scaleX(1);
+  transform-origin: center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out, background-color 0.3s ease-out;
+
+  /* подсказка браузеру заранее подготовить слой — критично для iOS Safari */
+  will-change: transform, opacity;
+  -webkit-transform: translateZ(0); /* форсируем GPU-слой на старых iOS */
+  backface-visibility: hidden;
 }
 
 .swiper-pagination-bullet-active {
-  width: 24px;
+  width: 10px; /* базовая ширина не меняется */
+  transform: scaleX(2.4); /* 10px * 2.4 = 24px, как у тебя было */
   opacity: 1;
   background: #1f8a71;
 }
+
 </style>
