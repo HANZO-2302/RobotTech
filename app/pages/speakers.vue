@@ -212,7 +212,7 @@ const cardVariants = {
 .swiper-pagination-bullet-active {
   width: 24px;
   opacity: 1;
-  background: #018ff4;
+  background: #1f8a71;
 }
 
 </style>
