@@ -47,11 +47,12 @@ const cardVariants = {
 </script>
 
 <template>
+      <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
+ /> -->
   <div
-    class="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-4"
+    class="relative max-w-7xl w-full mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-4"
   >
-    <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
- />
+
     <!-- Header -->
     <motion.div
       :initial="sectionVariants.hidden"
@@ -141,6 +142,7 @@ const cardVariants = {
     
 
     <!-- Bottom CTA -->
+     <div class="w-full">
     <motion.div
       :initial="{ opacity: 0, y: 30 }"
       :whileInView="{ opacity: 1, y: 0 }"
@@ -150,7 +152,7 @@ const cardVariants = {
         delay: 0.25,
         ease: 'easeOut',
       }"
-      class=" relative left-0 bottom-10 flex flex-col items-center text-center justify-center gap-4 sm:mt-16 lg:ml-0 lg:mt-4"
+      class=" relative left-0 bottom-10 flex flex-col items-center md:items-start text-center justify-center gap-4 sm:mt-16 lg:ml-0 lg:mt-10"
     >
       <span
         class="text-sm font-sans uppercase text-white sm:text-base"
@@ -170,7 +172,7 @@ const cardVariants = {
           duration: 0.2,
         }"
         type="button"
-        class="group relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)] "
+        class="group flex justify-center w-full max-w-sm relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)] "
       >
         <span
           class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] tracking-wide text-white"
@@ -183,6 +185,7 @@ const cardVariants = {
         />
       </motion.button>
     </motion.div>
+    </div>
   </div>
 </template>
 
