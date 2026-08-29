@@ -99,7 +99,7 @@ const cardVariants = {
     <motion.div
       :initial="sectionVariants.hidden"
       :animate="sectionVariants.visible"
-      class="relative bottom-16 w-full -translate-y-12 sm:hidden border"
+      class="relative bottom-16 w-full -translate-y-12 sm:hidden"
     >
       <Swiper
         :modules="modules"
