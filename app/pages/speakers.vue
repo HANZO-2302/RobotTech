@@ -88,8 +88,6 @@ const cardVariants = {
             :src="speaker.src"
             :alt="speaker.alt"
             class="h-full w-full object-cover"
-            :fetchpriority="index === 0 ? 'high' : 'auto'"
-            :loading="index === 0 ? 'eager' : 'lazy'"
           />
         </motion.div>
       </div>
@@ -112,7 +110,7 @@ const cardVariants = {
         }"
       >
         <SwiperSlide v-for="(speaker, index) in speakers" :key="speaker.src">
-          <div class="relative h-auto w-full overflow-hidden">
+          <div class="relative h-full w-full overflow-hidden">
             <img
               :src="speaker.src"
               :alt="speaker.alt"
