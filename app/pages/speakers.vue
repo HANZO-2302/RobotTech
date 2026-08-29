@@ -50,27 +50,28 @@ const cardVariants = {
   <div
     class="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-4"
   >
+    <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
+ />
     <!-- Header -->
     <motion.div
       :initial="sectionVariants.hidden"
       :whileInView="sectionVariants.visible"
       :viewport="{ once: true, amount: 0.25 }"
-      class="mx-auto mt-28"
+      class="mx-auto mt-24"
     >
       <h2
-        class="font-sans text-[clamp(2rem,10vw,4.5rem)] text-white/80 font-medium uppercase leading-[0.95] tracking-[-0.04em]"
+        class="font-sans text-[clamp(2.3rem,5vw,3.7rem)] text-white/80 font-medium uppercase leading-10"
       >
         The Future of Robotics & AI
       </h2>
-
       <p
-        class="mt-3 text-[clamp(0.2rem,5vw,1.8rem)] font-roboto leading-relaxed text-white/80"
+        class="w-full mt-3 text-[clamp(1rem,5vw,1.8rem)] font-roboto leading-6 text-white/80"
       >
         Engineers, founders and AI researchers shaping the industry today
       </p>
     </motion.div>
 
-    <!-- Speakers -->
+    <!-- Decktop -->
     <div class="relative max-w-7xl w-full hidden sm:flex">
       <div class="relative flex w-full flex-wrap items-center justify-between">
         <motion.div
@@ -86,14 +87,19 @@ const cardVariants = {
           <NuxtImg
             :src="speaker.src"
             :alt="speaker.alt"
-            class="h-auto w-full object-cover"
+            class="h-full w-full object-contain"
           />
         </motion.div>
       </div>
     </div>
 
     <!-- Mobile -->
-    <div class="relative w-full -translate-y-12   sm:hidden">
+    <motion.div
+      :initial="sectionVariants.hidden"
+      :whileInView="sectionVariants.visible"
+      :viewport="{ once: true, amount: 0.25 }"
+      class="relative bottom-16 w-full -translate-y-12 sm:hidden"
+    >
       <Swiper
         :modules="modules"
         :slides-per-view="1"
@@ -109,28 +115,30 @@ const cardVariants = {
             <NuxtImg
               :src="speaker.src"
               :alt="speaker.alt"
-              class="h-auto w-full object-cover"
+              class="h- w-full object-cover"
             />
           </div>
         </SwiperSlide>
+        <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
       </Swiper>
-    </div>
-    <!-- Arrows -->
-    <button
-      type="button"
-      class="sm:hidden speakers-prev absolute left-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white"
-      aria-label="Previous slide"
-    >
-      ‹
-    </button>
-    <button
-      type="button"
-      class=" sm:hidden speakers-next absolute right-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white"
-      aria-label="Next slide"
-    >
-      ›
-    </button>
-    <div className="swiper-pagination mt-5" />
+      <!-- Arrows -->
+      <button
+        type="button"
+        class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-1/2 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
+        aria-label="Previous slide"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        class="sm:hidden speakers-next absolute -right-2 top-1/2 z-10 flex h-16 w-9 -translate-y-1/2 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
+        aria-label="Next slide"
+      >
+        ›
+      </button>
+    </motion.div>
+    <!-- Pagination -->
+    
 
     <!-- Bottom CTA -->
     <motion.div
@@ -142,10 +150,10 @@ const cardVariants = {
         delay: 0.25,
         ease: 'easeOut',
       }"
-      class="mb-8 -mt-8 flex flex-col items-start gap-4 sm:mt-16 lg:ml-0 lg:mt-4"
+      class=" relative left-0 bottom-10 flex flex-col items-center text-center justify-center gap-4 sm:mt-16 lg:ml-0 lg:mt-4"
     >
       <span
-        class="text-sm font-sans uppercase tracking-[0.04em] text-white sm:text-base"
+        class="text-sm font-sans uppercase text-white sm:text-base"
       >
         5+ Industry Leaders
       </span>
@@ -162,7 +170,7 @@ const cardVariants = {
           duration: 0.2,
         }"
         type="button"
-        class="group relative h-[64px] w-full max-w-[386px] overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)] sm:h-[78px]"
+        class="group relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)] "
       >
         <span
           class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] tracking-wide text-white"
@@ -177,7 +185,12 @@ const cardVariants = {
     </motion.div>
   </div>
 </template>
+
 <style>
+p {
+  font-family: Arial, sans-serif;
+  font-weight: 100;  /* Тонкий */
+}
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
    ========================================== */
@@ -191,6 +204,7 @@ const cardVariants = {
   justify-content: center;
   gap: 2px;
   width: 100%;
+  margin-top: -50px;  
 }
 
 .swiper-pagination-bullet {
@@ -202,11 +216,19 @@ const cardVariants = {
   opacity: 0.5;
   cursor: pointer;
 
-  transition: width 0.3s ease-out, opacity 0.3s ease-out, background-color 0.3s ease-out;
+  transition:
+    width 0.3s ease-out,
+    opacity 0.3s ease-out,
+    background-color 0.3s ease-out;
 
-  will-change: width, opacity;
-  -webkit-transform: translateZ(0);
+  /* Аппаратное ускорение для всех браузеров */
+  -webkit-transform: translateZ(0);   /* Safari, iOS, старые браузеры */
+  transform: translateZ(0);           /* Современные браузеры */
+  
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  
+  will-change: width, opacity;
 }
 
 .swiper-pagination-bullet-active {
@@ -214,5 +236,4 @@ const cardVariants = {
   opacity: 1;
   background: #1f8a71;
 }
-
 </style>
