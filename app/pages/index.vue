@@ -1,8 +1,12 @@
+<script setup lang="ts">
+import { motion } from "motion-v";
+</script>
+
 <template>
   <div
     class="relative flex flex-1 flex-col items-center justify-center overflow-hidden"
   >
-  <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
+    <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
  /> -->
     <!-- Background -->
     <div
@@ -34,8 +38,19 @@
           shaping the next generation of robotics.
         </h2>
 
-        <button
-          class="group mt-12 flex h-20 w-full max-w-sm items-center justify-center gap-4 rounded-lg bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150%"
+        <motion.button
+          :whileHover="{
+            scale: 1.02,
+            y: -2,
+          }"
+          :whilePress="{
+            scale: 0.97,
+          }"
+          :transition="{
+            duration: 0.2,
+          }"
+          type="button"
+          class="group flex justify-center w-full max-w-sm relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
         >
           <NuxtLink
             to="/speakers"
@@ -43,11 +58,15 @@
           >
             Join Event
 
-            <span
+            <!-- <span
               class="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white transition-transform duration-150 group-hover:scale-x-100"
-            />
+            /> -->
           </NuxtLink>
-        </button>
+
+          <span
+            class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+          />
+        </motion.button>
 
         <h3
           class="mt-5 font-roboto text-center text-[clamp(1.2rem,2vw,1.5rem)] font-extralight text-[#F6F6F6]"

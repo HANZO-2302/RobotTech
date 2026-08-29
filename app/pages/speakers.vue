@@ -47,12 +47,11 @@ const cardVariants = {
 </script>
 
 <template>
-      <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
+  <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
  /> -->
   <div
     class="relative max-w-7xl w-full mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-4"
   >
-
     <!-- Header -->
     <motion.div
       :initial="sectionVariants.hidden"
@@ -61,12 +60,12 @@ const cardVariants = {
       class="mx-auto mt-24"
     >
       <h2
-        class="font-sans text-[clamp(2.3rem,5vw,3.7rem)] text-white/80 font-medium uppercase leading-10"
+        class="font-sans text-[clamp(2.2rem,5vw,3.7rem)] text-white/80 font-medium uppercase leading-10"
       >
         The Future of Robotics & AI
       </h2>
       <p
-        class="w-full mt-3 text-[clamp(1rem,5vw,1.8rem)] font-roboto leading-6 text-white/80"
+        class="w-full mt-3 mb-4 text-[clamp(1rem,5vw,1.8rem)] font-roboto leading-6 text-white/80"
       >
         Engineers, founders and AI researchers shaping the industry today
       </p>
@@ -85,10 +84,12 @@ const cardVariants = {
           :viewport="{ once: true, amount: 0.25 }"
           class="relative h-auto w-1/5 overflow-hidden"
         >
-          <NuxtImg
+          <img
             :src="speaker.src"
             :alt="speaker.alt"
-            class="h-full w-full object-contain"
+            class="h-full w-full object-cover"
+            :fetchpriority="index === 0 ? 'high' : 'auto'"
+            :loading="index === 0 ? 'eager' : 'lazy'"
           />
         </motion.div>
       </div>
@@ -97,9 +98,8 @@ const cardVariants = {
     <!-- Mobile -->
     <motion.div
       :initial="sectionVariants.hidden"
-      :whileInView="sectionVariants.visible"
-      :viewport="{ once: true, amount: 0.25 }"
-      class="relative bottom-16 w-full -translate-y-12 sm:hidden"
+      :animate="sectionVariants.visible"
+      class="relative bottom-16 w-full -translate-y-12 sm:hidden border"
     >
       <Swiper
         :modules="modules"
@@ -111,12 +111,14 @@ const cardVariants = {
           prevEl: '.speakers-prev',
         }"
       >
-        <SwiperSlide v-for="speaker in speakers" :key="speaker.src">
+        <SwiperSlide v-for="(speaker, index) in speakers" :key="speaker.src">
           <div class="relative h-auto w-full overflow-hidden">
-            <NuxtImg
+            <img
               :src="speaker.src"
               :alt="speaker.alt"
-              class="h- w-full object-cover"
+              class="h-full w-full object-cover"
+              :fetchpriority="index === 0 ? 'high' : 'auto'"
+              :loading="index === 0 ? 'eager' : 'lazy'"
             />
           </div>
         </SwiperSlide>
@@ -139,52 +141,53 @@ const cardVariants = {
       </button>
     </motion.div>
     <!-- Pagination -->
-    
 
     <!-- Bottom CTA -->
-     <div class="w-full">
-    <motion.div
-      :initial="{ opacity: 0, y: 30 }"
-      :whileInView="{ opacity: 1, y: 0 }"
-      :viewport="{ once: true, amount: 0.3 }"
-      :transition="{
-        duration: 0.7,
-        delay: 0.25,
-        ease: 'easeOut',
-      }"
-      class=" relative left-0 bottom-10 flex flex-col items-center md:items-start text-center justify-center gap-4 sm:mt-16 lg:ml-0 lg:mt-10"
-    >
-      <span
-        class="text-sm font-sans uppercase text-white sm:text-base"
-      >
-        5+ Industry Leaders
-      </span>
-
-      <motion.button
-        :whileHover="{
-          scale: 1.02,
-          y: -2,
-        }"
-        :whilePress="{
-          scale: 0.97,
-        }"
+    <div class="w-full mb-4">
+      <motion.div
+        :initial="{ opacity: 0, y: 30 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :viewport="{ once: true, amount: 0.3 }"
         :transition="{
-          duration: 0.2,
+          duration: 0.7,
+          delay: 0.25,
+          ease: 'easeOut',
         }"
-        type="button"
-        class="group flex justify-center w-full max-w-sm relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)] "
+        class="relative left-0 -mt-12 flex flex-col items-center md:items-start text-center justify-center gap-2 sm:mt-16"
       >
-        <span
-          class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] tracking-wide text-white"
-        >
-          View Speakers
+        <span class="text-sm font-sans uppercase text-white sm:text-base">
+          5+ Industry Leaders
         </span>
 
-        <span
-          class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-        />
-      </motion.button>
-    </motion.div>
+        <motion.button
+          :whileHover="{
+            scale: 1.02,
+            y: -2,
+          }"
+          :whilePress="{
+            scale: 0.97,
+          }"
+          :transition="{
+            duration: 0.2,
+          }"
+          type="button"
+          class="group flex justify-center w-full max-w-sm relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
+        >
+          <span
+            class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] tracking-wide text-white"
+          >
+            View Speakers
+          </span>
+          
+
+          <span
+            class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+          />
+          <span
+              class="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white transition-transform duration-150 group-hover:scale-x-100"
+            />
+        </motion.button>
+      </motion.div>
     </div>
   </div>
 </template>
@@ -192,7 +195,7 @@ const cardVariants = {
 <style>
 p {
   font-family: Arial, sans-serif;
-  font-weight: 100;  /* Тонкий */
+  font-weight: 100; /* Тонкий */
 }
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
@@ -207,7 +210,8 @@ p {
   justify-content: center;
   gap: 2px;
   width: 100%;
-  margin-top: -50px;  
+  margin-top: -40px;
+   /* background-color: #1f8a71; */
 }
 
 .swiper-pagination-bullet {
@@ -225,12 +229,12 @@ p {
     background-color 0.3s ease-out;
 
   /* Аппаратное ускорение для всех браузеров */
-  -webkit-transform: translateZ(0);   /* Safari, iOS, старые браузеры */
-  transform: translateZ(0);           /* Современные браузеры */
-  
+  -webkit-transform: translateZ(0); /* Safari, iOS, старые браузеры */
+  transform: translateZ(0); /* Современные браузеры */
+
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  
+
   will-change: width, opacity;
 }
 
