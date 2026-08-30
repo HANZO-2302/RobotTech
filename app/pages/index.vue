@@ -23,7 +23,7 @@ import { motion } from "motion-v";
       <!-- Content -->
       <div class="relative z-10 flex flex-col items-center text-center">
         <h1
-          class="font-bold mt-32 text-[clamp(2.6rem,13vw,8rem)] leading-[0.95] tracking-wide text-[#F6F6F6]"
+          class="font-bold text-[clamp(2.6rem,13vw,8rem)] leading-[0.95] tracking-wide text-[#F6F6F6]"
         >
           RobotTech
           <br />
@@ -31,7 +31,7 @@ import { motion } from "motion-v";
         </h1>
 
         <h2
-          class="mt-12 font-medium text-[clamp(1rem,2vw,2rem)] uppercase text-[#F6F6F6]"
+          class="mt-14 font-medium text-[clamp(1rem,2vw,2rem)] uppercase text-[#F6F6F6]"
         >
           Connect with engineers, founders, and AI leaders
           <br class="hidden sm:block" />
@@ -50,11 +50,11 @@ import { motion } from "motion-v";
             duration: 0.2,
           }"
           type="button"
-          class="group flex justify-center w-full max-w-sm relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
+          class="group mt-10 flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-gradient-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
         >
           <NuxtLink
             to="/speakers"
-            class="relative text-[clamp(1.2rem,2vw,1.5rem)] text-white"
+            class="relative text-[clamp(1.2rem,2vw,1.5rem)] p-5 text-white text-center w-full"
           >
             Join Event
 

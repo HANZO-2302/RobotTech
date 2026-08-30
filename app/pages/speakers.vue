@@ -108,13 +108,14 @@ const cardVariants = {
           nextEl: '.speakers-next',
           prevEl: '.speakers-prev',
         }"
+        class=" aspect-[3/4] w-full"
       >
         <SwiperSlide v-for="(speaker, index) in speakers" :key="speaker.src">
           <div class="relative h-full w-full overflow-hidden">
             <img
               :src="speaker.src"
               :alt="speaker.alt"
-              class="h-full w-full object-cover"
+              class="h-full w-full object-contain"
               :fetchpriority="index === 0 ? 'high' : 'auto'"
               :loading="index === 0 ? 'eager' : 'lazy'"
             />
@@ -169,10 +170,10 @@ const cardVariants = {
             duration: 0.2,
           }"
           type="button"
-          class="group flex justify-center w-full max-w-sm relative p-4 overflow-hidden rounded-[5px] border border-[#63b9ac]/30 bg-gradient-to-r from-[#429e90] to-[#286e64] px-8 text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
+          class="group flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-gradient-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
         >
           <span
-            class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] tracking-wide text-white"
+            class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] p-5 tracking-wide text-white"
           >
             View Speakers
           </span>
