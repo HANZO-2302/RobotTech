@@ -95,8 +95,9 @@ const cardVariants = {
 
     <!-- Mobile -->
     <motion.div
-      :initial="sectionVariants.hidden"
-      :animate="sectionVariants.visible"
+     :initial="sectionVariants.hidden"
+      :whileInView="sectionVariants.visible"
+      :viewport="{ once: true, amount: 0.25 }"
       class="relative bottom-16 w-full -translate-y-12 sm:hidden"
     >
       <Swiper
@@ -110,14 +111,13 @@ const cardVariants = {
         }"
         class=" aspect-[3/4] w-full"
       >
-        <SwiperSlide v-for="(speaker, index) in speakers" :key="speaker.src">
+        <SwiperSlide v-for="(speaker) in speakers" :key="speaker.src">
           <div class="relative h-full w-full overflow-hidden">
             <img
               :src="speaker.src"
               :alt="speaker.alt"
               class="h-full w-full object-contain"
-              :fetchpriority="index === 0 ? 'high' : 'auto'"
-              :loading="index === 0 ? 'eager' : 'lazy'"
+              loading="eager"
             />
           </div>
         </SwiperSlide>
