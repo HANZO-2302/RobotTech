@@ -49,7 +49,7 @@ const cardVariants = {
 <template>
   <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
  /> -->
-  <div class="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-4">
+  <div class="relative flex flex-1 flex-col items-center justify-center">
     <!-- Background -->
     <div
       class="pointer-events-none absolute right-0 bottom-0 z-0 w-full sm:w-auto"
