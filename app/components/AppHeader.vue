@@ -1,7 +1,7 @@
 <template>
   <motion.header
     :animate="{ y: isHidden ? '-180%' : '0%' }"
-    :transition="{ duration: 0.2, ease: 'easeInOut' }"
+    :transition="{ duration: 0.1, ease: 'linear' }"
     class="fixed mt-4 md:mt-8 left-0 right-0 z-50 mx-auto px-4 w-full max-w-7xl"
   >
     <div
