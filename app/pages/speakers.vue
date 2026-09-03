@@ -11,7 +11,7 @@ const modules = [Pagination, Navigation, A11y];
 
 const speakers = [
   { src: "images/Marc Raibert.svg", alt: "Marc Raibert" },
-  { src: "images/Marc Raibert2.svg", alt: "Marc Raibert" },
+  { src: "images/Elon Musk.svg", alt: "Elon Musk" },
   { src: "images/Marc Raibert3.svg", alt: "Marc Raibert" },
   { src: "images/Marc Raibert4.svg", alt: "Marc Raibert" },
   { src: "images/Marc Raibert5.svg", alt: "Marc Raibert" },
@@ -26,7 +26,7 @@ const sectionVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: "easeOut",
     },
   },
@@ -40,7 +40,7 @@ const cardVariants = {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.65, delay: index * 0.08, ease: "easeOut" },
+      transition: { duration: 0.5, delay: index * 0.08, ease: "easeOut" },
     };
   },
 };
@@ -57,15 +57,15 @@ const cardVariants = {
       :initial="sectionVariants.hidden"
       :whileInView="sectionVariants.visible"
       :viewport="{ once: true, amount: 0.25 }"
-      class="mx-auto mt-24"
+      class="mx-auto w-full text-center sm:text-start mt-24 flex flex-col items-center justify-center"
     >
       <h2
-        class="font-sans text-[clamp(2.2rem,5vw,3.7rem)] text-white/80 font-medium uppercase leading-10"
+        class="w-full font-bold text-[clamp(2.1rem,10vw,3.8rem)] leading-[0.95] tracking-wide text-white/90"
       >
         The Future of Robotics & AI
       </h2>
       <p
-        class="w-full mt-3 mb-4 text-[clamp(1rem,5vw,1.8rem)] font-roboto leading-6 text-white/80"
+        class="w-full my-4 text-[clamp(1rem,5vw,1.8rem)] font-roboto leading-6 text-white/80"
       >
         Engineers, founders and AI researchers shaping the industry today
       </p>
@@ -98,7 +98,7 @@ const cardVariants = {
      :initial="sectionVariants.hidden"
       :whileInView="sectionVariants.visible"
       :viewport="{ once: true, amount: 0.25 }"
-      class="relative bottom-16 w-full -translate-y-12 sm:hidden"
+      class="relative -mt-16 w-full sm:hidden"
     >
       <Swiper
         :modules="modules"
@@ -117,7 +117,6 @@ const cardVariants = {
               :src="speaker.src"
               :alt="speaker.alt"
               class="h-full w-full object-contain"
-              loading="eager"
             />
           </div>
         </SwiperSlide>
@@ -142,17 +141,17 @@ const cardVariants = {
     <!-- Pagination -->
 
     <!-- Bottom CTA -->
-    <div class="w-full mb-4">
+    <div class="w-full">
       <motion.div
-        :initial="{ opacity: 0, y: 30 }"
+        :initial="{ opacity: 0, y: -30 }"
         :whileInView="{ opacity: 1, y: 0 }"
-        :viewport="{ once: true, amount: 0.3 }"
+        :viewport="{ once: true }"
         :transition="{
-          duration: 0.7,
+          duration: 0.5,
           delay: 0.25,
           ease: 'easeOut',
         }"
-        class="relative left-0 -mt-12 flex flex-col items-center md:items-start text-center justify-center gap-2 sm:mt-16"
+        class="relative mb-10 flex flex-col items-center md:items-start text-center justify-center gap-2"
       >
         <span class="text-sm font-sans uppercase text-white sm:text-base">
           5+ Industry Leaders
