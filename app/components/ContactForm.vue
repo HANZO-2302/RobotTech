@@ -18,7 +18,7 @@ const schema = z.object({
   email: z.string().email("Please enter a valid email"),
   message: z
     .string()
-    .min(10, "Please describe the task in more detail (minimum 10 characters)")
+    .min(10, "Please write a more detailed message (minimum 10 characters).")
     .max(1000, "The message is too long"),
   terms: z.boolean().refine((val) => val === true, {
     message: "You must accept the terms of personal data processing",
@@ -80,7 +80,7 @@ const onSubmit = handleSubmit(async (values) => {
 const inputBase =
   "w-full bg-gray-200 rounded-xl px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#5e9463] placeholder:text-gray-500 text-gray-800";
 const errorText =
-  "text-red-300 text-[0.7rem] md:text-[0.5rem] ml-2 translate-y- h-1.5 block";
+  "text-red-300 text-[0.7rem] md:text-[0.5rem] ml-2 translate-y- h-1.5 block font-roboto";
 </script>
 
 <template>
@@ -185,7 +185,7 @@ const errorText =
           <textarea
             v-model="message"
             v-bind="messageAttrs"
-            placeholder="Describe the task"
+            placeholder="Write a message"
             rows="4"
             :class="`${inputBase} resize-none`"
           />
