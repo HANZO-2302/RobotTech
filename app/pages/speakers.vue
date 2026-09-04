@@ -125,11 +125,13 @@ const cardVariants = {
           }"
           class="aspect-[3/4] w-full"
         >
-          <SwiperSlide v-for="speaker in speakers" :key="speaker.src">
+          <SwiperSlide v-for="(speaker, index) in speakers" :key="speaker.src">
             <div class="relative h-full w-full overflow-hidden">
               <img
                 :src="speaker.src"
                 :alt="speaker.alt"
+                :fetchpriority="index === 0 ? 'high' : 'auto'"
+                :loading="index === 0 ? 'eager' : 'lazy'"
                 class="h-full w-full object-contain"
               />
             </div>
