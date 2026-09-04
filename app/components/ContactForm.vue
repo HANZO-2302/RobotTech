@@ -8,20 +8,20 @@ import { toast } from "vue-sonner";
 const schema = z.object({
   name: z
     .string()
-    .min(3, "Имя должно содержать минимум 3 символа")
-    .max(50, "Имя слишком длинное")
-    .regex(/^[a-zA-Zа-яА-ЯёЁ\s]+$/, "Имя может содержать только буквы"),
+    .min(3, "The name must contain at least 3 characters.")
+    .max(50, "The name is too long.")
+    .regex(/^[a-zA-Zа-яА-ЯёЁ\s]+$/, "The name can only contain letters."),
   phone: z
     .string()
-    .min(7, "Введите корректный номер телефона")
-    .regex(/^[\d\s+\-()]+$/, "Только цифры и спецсимволы"),
-  email: z.string().email("Введите корректный email"),
+    .min(7, "Please enter a valid phone number")
+    .regex(/^[\d\s+\-()]+$/, "Only digits and special characters"),
+  email: z.string().email("Please enter a valid email"),
   message: z
     .string()
-    .min(10, "Опишите задачу подробнее (минимум 10 символов)")
-    .max(1000, "Сообщение слишком длинное"),
+    .min(10, "Please describe the task in more detail (minimum 10 characters)")
+    .max(1000, "The message is too long"),
   terms: z.boolean().refine((val) => val === true, {
-    message: "Необходимо принять условия обработки персональных данных",
+    message: "You must accept the terms of personal data processing",
   }),
 });
 
@@ -53,7 +53,7 @@ async function sendMail(data: FormValues) {
     body: data,
   }).catch((err) => {
     // Nuxt/ofetch кладёт тело ошибки в err.data
-    const message = err?.data?.message || "Ошибка отправки";
+    const message = err?.data?.message || "Sending error";
     throw new Error(message);
   });
 }
@@ -62,8 +62,8 @@ const onSubmit = handleSubmit(async (values) => {
   showSpinner.value = true;
   try {
     await sendMail(values);
-    toast.success("Заявка отправлена!", {
-      description: "Мы свяжемся с вами в ближайшее время.",
+    toast.success("Request sent!", {
+      description: "We will contact you as soon as possible.",
     });
     resetForm();
   } catch (err: unknown) {
@@ -71,7 +71,7 @@ const onSubmit = handleSubmit(async (values) => {
       err instanceof Error
         ? err.message
         : "Please try again later or contact us directly.";
-    toast.error("Не удалось отправить", { description: message });
+    toast.error("Failed to send", { description: message });
   } finally {
     setTimeout(() => (showSpinner.value = false), 300);
   }
@@ -86,7 +86,7 @@ const errorText =
 <template>
   <section
     id="form"
-    class="bg-[#2f5d3a] flex mt-14 justify-center md:py-20 md:px-10 py-10 px-4"
+    class=" flex mt-14 justify-center md:py-20 md:px-10 py-10 px-4"
   >
     <div
       class="max-w-5xl w-full flex flex-col lg:flex-row justify-between items-start gap-10"
@@ -94,7 +94,7 @@ const errorText =
       <!-- LEFT -->
       <div class="max-w-full md:max-w-150 md:mt-5 text-white">
         <h1
-          class="relative text-3xl md:text-left sm:text-4xl lg:text-5xl lg:bottom-6 font-medium mb-5"
+          class="relative text-3xl md:text-left sm:text-4xl lg:text-4xl lg:bottom-6 font-medium mb-5"
         >
           lorem ipsum dolor sit amet <br />
           lorem ipsum dolor sit <br />
@@ -102,9 +102,9 @@ const errorText =
         </h1>
 
         <p
-          class="relative text-sm font-light sm:text-lg lg:text-xl lg:bottom-6 text-white/80 leading-7 mb-9"
+          class="relative text-sm font-light sm:text-lg lg:text-md lg:bottom-6 text-white/80 leading-7 mb-9"
         >
-          lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
 
         <div class="flex md:mt-14 md:justify-start justify-center items-center gap-9">
@@ -151,7 +151,7 @@ const errorText =
               v-model="name"
               v-bind="nameAttrs"
               type="text"
-              placeholder="Имя"
+              placeholder="Name"
               :class="inputBase"
             />
             <p :class="errorText">{{ errors.name ?? "" }}</p>
@@ -161,7 +161,7 @@ const errorText =
               v-model="phone"
               v-bind="phoneAttrs"
               type="tel"
-              placeholder="Номер тел."
+              placeholder="Phone number"
               :class="inputBase"
             />
             <p :class="errorText">{{ errors.phone ?? "" }}</p>
@@ -174,7 +174,7 @@ const errorText =
             v-model="email"
             v-bind="emailAttrs"
             type="email"
-            placeholder="Электронная почта"
+            placeholder="Email"
             :class="inputBase"
           />
           <p :class="errorText">{{ errors.email ?? "" }}</p>
@@ -185,7 +185,7 @@ const errorText =
           <textarea
             v-model="message"
             v-bind="messageAttrs"
-            placeholder="Опишите задачу"
+            placeholder="Describe the task"
             rows="4"
             :class="`${inputBase} resize-none`"
           />
