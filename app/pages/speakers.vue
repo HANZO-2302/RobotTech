@@ -49,9 +49,9 @@ const cardVariants = {
 <template>
   <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
  /> -->
-  <div class="relative flex flex-1 flex-col items-center justify-center">
+  <div class="relative flex flex-1 flex-col items-start justify-start">
     <!-- Background -->
-    <div
+    <!-- <div
       class="pointer-events-none absolute right-0 bottom-0 z-0 w-full sm:w-auto"
     >
       <img
@@ -59,28 +59,30 @@ const cardVariants = {
         alt=""
         class="block h-auto w-full object-contain object-bottom opacity-40 sm:h-screen"
       />
-    </div>
+    </div> -->
 
     <div
-      class="relative max-w-7xl w-full mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-4"
+      class="relative max-w-7xl w-full mx-auto flex flex-col items-start justify-center overflow-hidden px-4"
     >
       <!-- Header -->
       <motion.div
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
-        class="mx-auto w-full text-center sm:text-start mt-24 flex flex-col items-center justify-center"
+        class="mx-auto w-full sm:text-start mt-28 flex flex-col items-center justify-center"
       >
-        <h2
-          class="w-full font-bold text-[clamp(2.1rem,10vw,3.8rem)] leading-[0.95] tracking-wide text-white/90"
-        >
-          The Future of Robotics & AI
-        </h2>
-        <p
-          class="w-full my-4 text-[clamp(1rem,5vw,1.8rem)] font-roboto leading-6 text-white/80"
-        >
-          Engineers, founders and AI researchers shaping the industry today
-        </p>
+        <div class="relative w-full z-10">
+          <h1
+            class="text-[clamp(2rem,3vw,4rem)] leading-[0.95] tracking-wide text-white/90"
+          >
+            World-class speakers shaping the future of robotics and AI
+          </h1>
+        </div>
+        <div class="relative w-full my-4 z-10">
+          <h2
+            class="font-roboto font-extralight text-start text-[clamp(1rem,3vw,1.6rem)] text-white/90 tracking-wide"
+          ></h2>
+        </div>
       </motion.div>
 
       <!-- Decktop -->
@@ -107,9 +109,54 @@ const cardVariants = {
         </div>
       </div>
 
+      <!-- Speaker Card -->
+      <div
+        class="relative flex flex-col -skew-x-[19deg] left-14 rounded-lg gap-1"
+      >
+        <div class="flex justify-start gap-1">
+          <div
+            class="relative w-[30px] h-[150px] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+          >
+            <div
+              class="absolute bottom-10 p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+            >
+              Marc Raibert
+            </div>
+          </div>
+          <div
+            class="relative w-[200px] h-[150px] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+          >
+            <NuxtImg
+              src="/Marc Raibert.png"
+              alt="Marc Raibert"
+              class="absolute object-contain w-full right-4 -bottom-0 skew-x-[19deg]"
+            />
+          </div>
+        </div>
+        <div class="relative left-8 flex justify-start gap-1">
+          <div
+            class="relative w-[200px] h-[150px] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+          >
+            <NuxtImg
+              src="/Atlas.png"
+              alt="Marc Raibert"
+              class="absolute object-cover h-auto w-full right-4 -bottom-0 skew-x-[19deg]"
+            />
+          </div>
+          <div
+            class="relative w-[30px] h-[150px] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+          ><div
+              class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+            >
+              Atlas
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Mobile -->
-      <motion.div
-        :initial="sectionVariants.hidden"
+      <!--
+        :initial="sectionVariants.hidd[200px]
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
         class="relative -mt-16 w-full sm:hidden"
@@ -135,11 +182,11 @@ const cardVariants = {
                 class="h-full w-full object-contain"
               />
             </div>
-          </SwiperSlide>
-          <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
-        </Swiper>
-        <!-- Arrows -->
-        <button
+          </SwiperSlide> -->
+      <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
+      <!-- </Swiper> -->
+      <!-- Arrows -->
+      <!-- <button
           type="button"
           class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-1/2 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
           aria-label="Previous slide"
@@ -153,7 +200,7 @@ const cardVariants = {
         >
           ›
         </button>
-      </motion.div>
+      </motion.div> -->
       <!-- Pagination -->
 
       <!-- Bottom CTA -->
@@ -167,9 +214,9 @@ const cardVariants = {
             delay: 0.25,
             ease: 'easeOut',
           }"
-          class="relative mb-10 flex flex-col items-center md:items-start text-center justify-center gap-2"
+          class="relative mb-10 mt-10 flex flex-col items-center md:items-start text-center justify-center gap-2"
         >
-          <span class="text-sm font-sans uppercase text-white sm:text-base">
+          <span class="text-sm font-sans uppercase text-white/80 sm:text-base">
             5+ Industry Leaders
           </span>
 
@@ -187,26 +234,41 @@ const cardVariants = {
             type="button"
             class="group flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-gradient-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
           >
-            <span
-              class="relative z-10 font-sans text-[clamp(1.2rem,2vw,1.5rem)] p-5 tracking-wide text-white"
+            <NuxtLink
+              to="/speakers"
+              class="relative font-display text-[clamp(1.5rem,2vw,1.5rem)] p-5 uppercase text-white drop-shadow-md text-center w-full"
             >
               View Speakers
-            </span>
+
+              <span
+                class="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white transition-transform duration-150 group-hover:scale-x-100"
+              ></span>
+            </NuxtLink>
 
             <span
               class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-            />
-            <span
-              class="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white transition-transform duration-150 group-hover:scale-x-100"
-            />
+            ></span>
           </motion.button>
+          <h3
+            class="mt-1 text-sm font-sans uppercase text-white/80 sm:text-base"
+          >
+            International Conference · Berlin · May 2026 ·
+          </h3>
         </motion.div>
       </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
+.card {
+  transform: skewX(calc(var(--skew, -15deg) * -1));
+  background: linear-gradient(135deg, #2d5f52, #1a3d33);
+}
+
+.skew-compensate {
+  transform: skewX(var(--skew, -15deg));
+}
 p {
   font-family: Arial, sans-serif;
   font-weight: 100; /* Тонкий */
@@ -257,4 +319,8 @@ p {
   opacity: 1;
   background: #1f8a71;
 }
+/* .font-roboto {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+} */
 </style>

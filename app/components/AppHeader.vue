@@ -5,26 +5,62 @@
     class="fixed mt-4 md:mt-8 left-0 right-0 z-50 mx-auto px-4 w-full max-w-7xl"
   >
     <div
-      class="relative flex items-center justify-between sm:justify-center rounded-xl bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% px-5 py-4 text-white shadow-lg shadow-black/10"
+      class="relative flex items-center justify-between sm:justify-center rounded-xl bg-gradient-to-l from-[#4a9d90] via-[#3d8a7e] via-50% to-[#246057] px-5 py-3 text-white shadow-lg shadow-black/10"
     >
       <!-- Логотип (виден только на мобиле, где нав скрыт) -->
       <NuxtLink to="/" class="text-sm font-semibold tracking-wide">
         <NuxtImg
           src="/images/logo.png"
           alt="Footer by Hanzo"
-          class=" absolute left-5 -translate-x-0 -translate-y-1/2  h-auto w-8 drop-shadow-[0_2px_1px_rgba(0,0,0,0.7)]  "
+          class="absolute left-5 -translate-x-0 -translate-y-1/2 h-auto w-8 drop-shadow-[0_2px_1px_rgba(0,0,0,0.4)]"
         />
       </NuxtLink>
 
       <!-- Десктоп-навигация -->
       <nav class="hidden sm:block">
         <ul
-          class="li-hheader flex items-center space-x-10 md:space-x-16 lg:space-x-36 text-sm font-medium"
+          class="li-hheader flex items-center space-x-10 md:space-x-12 lg:space-x-28 text-sm font-medium"
         >
-          <li><NuxtLink to="/">EVENTS</NuxtLink></li>
-          <li><NuxtLink to="/speakers">SPEAKERS</NuxtLink></li>
-          <li><NuxtLink to="/contacts">CONTACT</NuxtLink></li>
-          <li><NuxtLink to="/error">SIGN IN</NuxtLink></li>
+          <li>
+            <NuxtLink
+              to="/"
+              class="group relative inline-block p-2 px-5 drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+              >EVENTS
+              <span
+                class="absolute -bottom-0 -left-0 h-[36px] rounded-sm -skew-x-[18deg] w-full origin-left scale-x-0 border-2 border-white transition-transform duration-300 drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-[.router-link-exact-active]:drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-hover:scale-x-100 group-[.router-link-exact-active]:scale-x-100"
+              ></span>
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              to="/speakers"
+              class="group relative inline-block p-2 px-5 drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+              >SPEAKERS
+              <span
+                class="absolute -bottom-0 -left-0 h-[36px] rounded-sm -skew-x-[18deg] w-full origin-left scale-x-0 border-2 border-white transition-transform duration-300 drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-[.router-link-exact-active]:drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-hover:scale-x-100 group-[.router-link-exact-active]:scale-x-100 "
+              ></span>
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              to="/contacts"
+              class="group relative inline-block p-2 px-5 drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+              >CONTACT
+              <span
+                class="absolute -bottom-0 -left-0 h-[36px] rounded-sm -skew-x-[18deg] w-full origin-left scale-x-0 border-2 border-white transition-transform duration-300 drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-[.router-link-exact-active]:drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-hover:scale-x-100 group-[.router-link-exact-active]:scale-x-100"
+              ></span>
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              to="/error"
+              class="group relative inline-block p-2 px-5 drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+              >SIGN IN
+              <span
+                class="absolute -bottom-0 -left-0 h-[36px] rounded-sm -skew-x-[18deg] w-full origin-left scale-x-0 border-2 border-white transition-transform duration-300 drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-[.router-link-exact-active]:drop-shadow-[0_2px_1px_rgba(0,0,0,0.1)] group-hover:scale-x-100 group-[.router-link-exact-active]:scale-x-100"
+              ></span>
+            </NuxtLink>
+          </li>
         </ul>
       </nav>
 
