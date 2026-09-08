@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Navigation, A11y } from "swiper/modules";
+import {
+  Pagination,
+  Parallax,
+  Navigation,
+  A11y,
+  EffectCoverflow,
+} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/parallax";
+import "swiper/css/effect-coverflow";
 
-const modules = [Pagination, Navigation, A11y];
+const modules = [Pagination, Navigation, A11y, Parallax, EffectCoverflow];
 
 const speakers = [
   { src: "images/Marc Raibert.svg", alt: "Marc Raibert" },
@@ -165,14 +173,24 @@ const cardVariants = {
       >
         <Swiper
           :modules="modules"
+          :speed="800"
+          :effect="'coverflow'"
+          :parallax="true"
           :slides-per-view="1"
-          :space-between="16"
+          :space-between="20"
           :pagination="{ clickable: true }"
           :navigation="{
             nextEl: '.speakers-next',
             prevEl: '.speakers-prev',
           }"
-          class=" w-full flex items-center justify-center overflow-hidden"
+          :coverflowEffect="{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          }"
+          class="w-full flex items-center justify-center overflow-hidden"
         >
           <SwiperSlide>
             <div
@@ -180,9 +198,11 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
+                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 left-[19%]"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -206,6 +226,7 @@ const cardVariants = {
                 class="relative left-[34%] h-full w-full flex justify-center gap-1"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
                 >
                   <NuxtImg
@@ -232,9 +253,11 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
+                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 left-[19%]"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -258,6 +281,7 @@ const cardVariants = {
                 class="relative left-[34%] h-full w-full flex justify-center gap-1"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
                 >
                   <NuxtImg
@@ -284,9 +308,11 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
+                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 left-[19%]"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -310,6 +336,7 @@ const cardVariants = {
                 class="relative left-[34%] h-full w-full flex justify-center gap-1"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
                 >
                   <NuxtImg
@@ -336,9 +363,11 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
+                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 left-[19%]"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -362,6 +391,7 @@ const cardVariants = {
                 class="relative left-[34%] h-full w-full flex justify-center gap-1"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
                 >
                   <NuxtImg
@@ -388,9 +418,11 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
+                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 left-[19%]"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -414,6 +446,7 @@ const cardVariants = {
                 class="relative left-[34%] h-full w-full flex justify-center gap-1"
               >
                 <div
+                  data-swiper-parallax="-300"
                   class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
                 >
                   <NuxtImg
@@ -516,6 +549,14 @@ p {
   font-family: Arial, sans-serif;
   font-weight: 100; /* Тонкий */
 }
+/* .swiper-slide-active {
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+.swiper-slide:not(.swiper-slide-active) {
+  transform: scale(1.8);
+  transition: transform 0.3s ease-in-out;
+} */
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
    ========================================== */
