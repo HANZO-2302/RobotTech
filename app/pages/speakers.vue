@@ -106,7 +106,7 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-auto w-1/5 border overflow-hidden"
+            class="relative h-auto w-1/5 overflow-hidden"
           >
             <img
               :src="speaker.src"
@@ -184,9 +184,9 @@ const cardVariants = {
             prevEl: '.speakers-prev',
           }"
           :coverflowEffect="{
-            rotate: 50,
+            rotate: 40,
             stretch: 0,
-            depth: 100,
+            depth: 50,
             modifier: 1,
             slideShadows: false,
           }"
