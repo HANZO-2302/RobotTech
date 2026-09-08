@@ -73,7 +73,7 @@ const cardVariants = {
       >
         <div class="relative w-full z-10">
           <h1
-            class="text-[clamp(2rem,3vw,4rem)] leading-[0.95] tracking-wide text-white/90"
+            class="text-[clamp(1.7rem,3vw,4rem)] text-center md:text-start leading-[0.95] tracking-wide text-white/90"
           >
             World-class speakers shaping the future of robotics and AI
           </h1>
@@ -98,7 +98,7 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-auto w-1/5 overflow-hidden"
+            class="relative h-auto w-1/5 border overflow-hidden"
           >
             <img
               :src="speaker.src"
@@ -110,41 +110,43 @@ const cardVariants = {
       </div>
 
       <!-- Speaker Card -->
-      <div
-        class="relative flex flex-col -skew-x-[19deg] left-14 rounded-lg gap-1"
-      >
-        <div class="flex justify-start gap-1">
+      <!-- <div
+        class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+      >  -->
+      <!-- Вверхняя панель -->
+      <!-- <div class=" relative flex justify-center h-full w-full gap-1 left-[15%] ">
           <div
-            class="relative w-[30px] h-[150px] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+            class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
           >
             <div
-              class="absolute bottom-10 p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+              class="absolute bottom-[25%] p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
             >
               Marc Raibert
             </div>
           </div>
           <div
-            class="relative w-[200px] h-[150px] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+            class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
           >
             <NuxtImg
               src="/Marc Raibert.png"
               alt="Marc Raibert"
-              class="absolute object-contain w-full right-4 -bottom-0 skew-x-[19deg]"
+              class="absolute object-cover h-[80%] w-full right-4 -bottom-0 skew-x-[19deg]"
             />
           </div>
-        </div>
-        <div class="relative left-8 flex justify-start gap-1">
+        </div> -->
+      <!-- Нижняя панель -->
+      <!-- <div class="relative left-[30%] h-full  w-full flex justify-center  gap-1">
           <div
-            class="relative w-[200px] h-[150px] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+            class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
           >
             <NuxtImg
               src="/Atlas.png"
               alt="Marc Raibert"
-              class="absolute object-cover h-auto w-full right-4 -bottom-0 skew-x-[19deg]"
+              class="absolute object-cover h-[80%] w-full right-1 -bottom-0 skew-x-[19deg]"
             />
           </div>
           <div
-            class="relative w-[30px] h-[150px] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+            class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
           ><div
               class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
             >
@@ -152,14 +154,14 @@ const cardVariants = {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Mobile -->
-      <!--
-        :initial="sectionVariants.hidd[200px]
+      <motion.div
+        :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
-        class="relative -mt-16 w-full sm:hidden"
+        class="relative w-full sm:hidden"
       >
         <Swiper
           :modules="modules"
@@ -170,23 +172,272 @@ const cardVariants = {
             nextEl: '.speakers-next',
             prevEl: '.speakers-prev',
           }"
-          class="aspect-[3/4] w-full"
+          class=" w-full flex items-center justify-center overflow-hidden"
         >
-          <SwiperSlide v-for="(speaker, index) in speakers" :key="speaker.src">
-            <div class="relative h-full w-full overflow-hidden">
-              <img
-                :src="speaker.src"
-                :alt="speaker.alt"
-                :fetchpriority="index === 0 ? 'high' : 'auto'"
-                :loading="index === 0 ? 'eager' : 'lazy'"
-                class="h-full w-full object-contain"
-              />
+          <SwiperSlide>
+            <div
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+            >
+              <!-- Вверхняя панель -->
+              <div
+                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+              >
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-[25%] p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Marc Raibert
+                  </div>
+                </div>
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Marc Raibert.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-4 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+              </div>
+              <!-- Нижняя панель -->
+              <div
+                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+              >
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Atlas.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Atlas
+                  </div>
+                </div>
+              </div>
             </div>
-          </SwiperSlide> -->
-      <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
-      <!-- </Swiper> -->
-      <!-- Arrows -->
-      <!-- <button
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+            >
+              <!-- Вверхняя панель -->
+              <div
+                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+              >
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-[25%] p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Marc Raibert
+                  </div>
+                </div>
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Marc Raibert.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-4 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+              </div>
+              <!-- Нижняя панель -->
+              <div
+                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+              >
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Atlas.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Atlas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+            >
+              <!-- Вверхняя панель -->
+              <div
+                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+              >
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-[25%] p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Marc Raibert
+                  </div>
+                </div>
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Marc Raibert.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-4 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+              </div>
+              <!-- Нижняя панель -->
+              <div
+                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+              >
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Atlas.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Atlas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+            >
+              <!-- Вверхняя панель -->
+              <div
+                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+              >
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-[25%] p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Marc Raibert
+                  </div>
+                </div>
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Marc Raibert.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-4 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+              </div>
+              <!-- Нижняя панель -->
+              <div
+                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+              >
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Atlas.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Atlas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+            >
+              <!-- Вверхняя панель -->
+              <div
+                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+              >
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-[25%] p-2 -right-10 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Marc Raibert
+                  </div>
+                </div>
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Marc Raibert.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-4 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+              </div>
+              <!-- Нижняя панель -->
+              <div
+                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+              >
+                <div
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                >
+                  <NuxtImg
+                    src="/Atlas.png"
+                    alt="Marc Raibert"
+                    class="absolute object-cover h-[80%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                  />
+                </div>
+                <div
+                  class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                >
+                  <div
+                    class="absolute bottom-2 p-2 -left-3 font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                  >
+                    Atlas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
+        </Swiper>
+        <!-- Arrows -->
+        <button
           type="button"
           class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-1/2 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
           aria-label="Previous slide"
@@ -200,7 +451,7 @@ const cardVariants = {
         >
           ›
         </button>
-      </motion.div> -->
+      </motion.div>
       <!-- Pagination -->
 
       <!-- Bottom CTA -->
@@ -260,15 +511,7 @@ const cardVariants = {
   </div>
 </template>
 
-<style scoped>
-.card {
-  transform: skewX(calc(var(--skew, -15deg) * -1));
-  background: linear-gradient(135deg, #2d5f52, #1a3d33);
-}
-
-.skew-compensate {
-  transform: skewX(var(--skew, -15deg));
-}
+<style>
 p {
   font-family: Arial, sans-serif;
   font-weight: 100; /* Тонкий */
@@ -286,7 +529,7 @@ p {
   justify-content: center;
   gap: 2px;
   width: 100%;
-  margin-top: -40px;
+  margin-top: 4%;
   /* background-color: #1f8a71; */
 }
 
