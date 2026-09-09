@@ -254,12 +254,12 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
                 data-swiper-parallax="-500"
-                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+                class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -283,7 +283,7 @@ const cardVariants = {
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+                class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -309,12 +309,12 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
                 data-swiper-parallax="-500"
-                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+                class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -338,7 +338,7 @@ const cardVariants = {
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+                class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -364,12 +364,12 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
                 data-swiper-parallax="-500"
-                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+                class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -393,7 +393,7 @@ const cardVariants = {
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+                class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -419,12 +419,12 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
                 data-swiper-parallax="-500"
-                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+                class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -448,7 +448,7 @@ const cardVariants = {
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+                class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax="-300"
