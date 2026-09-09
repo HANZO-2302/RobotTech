@@ -6,16 +6,16 @@ import {
   Parallax,
   Navigation,
   A11y,
-  EffectCoverflow,
+  EffectCreative,
 } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/parallax";
-import "swiper/css/effect-coverflow";
+import "swiper/css/effect-creative";
 
-const modules = [Pagination, Navigation, A11y, Parallax, EffectCoverflow];
+const modules = [Pagination, Navigation, A11y, Parallax, EffectCreative];
 
 const speakers = [
   { src: "images/Marc Raibert.svg", alt: "Marc Raibert" },
@@ -174,7 +174,7 @@ const cardVariants = {
         <Swiper
           :modules="modules"
           :speed="800"
-          :effect="'coverflow'"
+          :effect="'creative'"
           :parallax="true"
           :slides-per-view="1"
           :space-between="20"
@@ -183,23 +183,28 @@ const cardVariants = {
             nextEl: '.speakers-next',
             prevEl: '.speakers-prev',
           }"
-          :coverflowEffect="{
-            rotate: 40,
-            stretch: 0,
-            depth: 50,
-            modifier: 1,
-            slideShadows: false,
+          :creativeEffect="{
+            prev: {
+              shadow: false,
+              translate: ['-120%', 0, -200],
+              rotate: [0, 0, -10],
+              opacity: 0,
+            },
+            next: {
+              translate: ['100%', 0, 0],
+              opacity: 1,
+            },
           }"
-          class="w-full flex items-center justify-center overflow-hidden"
+          class="w-full flex items-center justify-center pb-12 pt-4"
         >
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
                 data-swiper-parallax="-500"
-                class="relative flex justify-center h-full w-full gap-1 left-[19%]"
+                class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -223,7 +228,7 @@ const cardVariants = {
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative left-[34%] h-full w-full flex justify-center gap-1"
+                class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax="-300"
@@ -486,7 +491,7 @@ const cardVariants = {
         </button>
       </motion.div>
       <!-- Pagination -->
-
+      <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
       <!-- Bottom CTA -->
       <div class="w-full">
         <motion.div
