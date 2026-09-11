@@ -145,7 +145,7 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-4"
+                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-3"
               >
                 <div
                   class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
@@ -239,7 +239,7 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-4"
+                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-5"
               >
                 <div
                   data-swiper-parallax-y="1200"
