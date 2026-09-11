@@ -578,16 +578,15 @@ p {
 
 .speakers-pagination {
   position: relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  bottom: auto;
+  left: auto;
+  right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2px;
   width: 100%;
-  margin-top: 10px;
-  /* background-color: #1f8a71; */
+  margin-top: 20px;
 }
 
 .swiper-pagination-bullet {
