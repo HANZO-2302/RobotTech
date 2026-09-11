@@ -169,7 +169,7 @@ const cardVariants = {
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
-        class="relative h-full w-full sm:hidden border"
+        class="relative h-full w-full sm:hidden"
       >
         <Swiper
           :modules="modules"
