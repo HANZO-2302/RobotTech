@@ -169,16 +169,16 @@ const cardVariants = {
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
-        class="relative w-full sm:hidden"
+        class="relative h-full w-full sm:hidden border"
       >
         <Swiper
           :modules="modules"
-          :speed="800"
+          :speed="1200"
           :effect="'creative'"
           :parallax="true"
-          :slides-per-view="1"
-          :space-between="20"
-          :pagination="{ clickable: true }"
+          :slides-per-view="1 "
+          :space-between="10"
+          :pagination="{ el: '.speakers-pagination', clickable: true }"
           :navigation="{
             nextEl: '.speakers-next',
             prevEl: '.speakers-prev',
@@ -186,8 +186,8 @@ const cardVariants = {
           :creativeEffect="{
             prev: {
               shadow: false,
-              translate: ['-120%', 0, -200],
-              rotate: [0, 0, -10],
+              translate: ['-150%', 0, 0],
+              rotate: [0, 0, 0],
               opacity: 0,
             },
             next: {
@@ -195,19 +195,18 @@ const cardVariants = {
               opacity: 1,
             },
           }"
-          class="w-full flex items-center justify-center pb-12 pt-4"
+          class="h-full w-full flex items-center justify-center "
         >
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto "
             >
               <!-- Вверхняя панель -->
               <div
-                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
-                  data-swiper-parallax="-300"
+                  data-swiper-parallax-y="1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -217,7 +216,8 @@ const cardVariants = {
                   </div>
                 </div>
                 <div
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="-300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Marc Raibert.png"
@@ -231,8 +231,8 @@ const cardVariants = {
                 class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
-                  data-swiper-parallax="-300"
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Atlas.png"
@@ -241,6 +241,7 @@ const cardVariants = {
                   />
                 </div>
                 <div
+                  data-swiper-parallax-y="-1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -254,15 +255,14 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
-                  data-swiper-parallax="-300"
+                  data-swiper-parallax-y="1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -272,7 +272,8 @@ const cardVariants = {
                   </div>
                 </div>
                 <div
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="-300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Marc Raibert.png"
@@ -286,8 +287,8 @@ const cardVariants = {
                 class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
-                  data-swiper-parallax="-300"
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Atlas.png"
@@ -296,6 +297,7 @@ const cardVariants = {
                   />
                 </div>
                 <div
+                  data-swiper-parallax-y="-1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -309,15 +311,14 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
-                  data-swiper-parallax="-300"
+                  data-swiper-parallax-y="1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -327,7 +328,8 @@ const cardVariants = {
                   </div>
                 </div>
                 <div
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="-300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Marc Raibert.png"
@@ -341,8 +343,8 @@ const cardVariants = {
                 class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
-                  data-swiper-parallax="-300"
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Atlas.png"
@@ -351,6 +353,7 @@ const cardVariants = {
                   />
                 </div>
                 <div
+                  data-swiper-parallax-y="-1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -364,15 +367,14 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
-                  data-swiper-parallax="-300"
+                  data-swiper-parallax-y="1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -382,7 +384,8 @@ const cardVariants = {
                   </div>
                 </div>
                 <div
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="-300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Marc Raibert.png"
@@ -396,8 +399,8 @@ const cardVariants = {
                 class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
-                  data-swiper-parallax="-300"
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Atlas.png"
@@ -406,6 +409,7 @@ const cardVariants = {
                   />
                 </div>
                 <div
+                  data-swiper-parallax-y="-1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -419,15 +423,14 @@ const cardVariants = {
           </SwiperSlide>
           <SwiperSlide>
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-auto w-full gap-1 mx-auto"
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                data-swiper-parallax="-500"
                 class="relative flex justify-center h-full w-full gap-1 -left-[8%]"
               >
                 <div
-                  data-swiper-parallax="-300"
+                  data-swiper-parallax-y="1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -437,7 +440,8 @@ const cardVariants = {
                   </div>
                 </div>
                 <div
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="-300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Marc Raibert.png"
@@ -451,8 +455,8 @@ const cardVariants = {
                 class="relative left-[8%] h-full w-full flex justify-center gap-1"
               >
                 <div
-                  data-swiper-parallax="-300"
-                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057] overflow-hidden"
+                  data-swiper-parallax-y="300"
+                  class="relative w-[86%] aspect-[4/3] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     src="/Atlas.png"
@@ -461,6 +465,7 @@ const cardVariants = {
                   />
                 </div>
                 <div
+                  data-swiper-parallax-y="-1200"
                   class="relative w-[14%] aspect-[1/5] rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
@@ -472,26 +477,31 @@ const cardVariants = {
               </div>
             </div>
           </SwiperSlide>
-          <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
+
+
         </Swiper>
-        <!-- Arrows -->
-        <button
-          type="button"
-          class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-1/2 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
-          aria-label="Previous slide"
-        >
-          ‹
-        </button>
-        <button
-          type="button"
-          class="sm:hidden speakers-next absolute -right-2 top-1/2 z-10 flex h-16 w-9 -translate-y-1/2 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
-          aria-label="Next slide"
-        >
-          ›
-        </button>
+                  <!-- Arrows -->
+          <button
+            type="button"
+            class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-[3.5rem] items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
+            aria-label="Previous slide"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            class="sm:hidden speakers-next absolute -right-2 top-1/2 z-10 flex h-16 w-9 -translate-y-[3.5rem] items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
+            aria-label="Next slide"
+          >
+            ›
+          </button>
+
+        <div
+          class="relative swiper-pagination speakers-pagination py-3 w-full mx-auto"
+        ></div>
       </motion.div>
       <!-- Pagination -->
-      <!-- <div class="swiper-pagination border h-10 w-auto"></div> -->
+
       <!-- Bottom CTA -->
       <div class="w-full">
         <motion.div
@@ -555,27 +565,28 @@ p {
   font-weight: 100; /* Тонкий */
 }
 /* .swiper-slide-active {
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
 }
 .swiper-slide:not(.swiper-slide-active) {
-  transform: scale(1.8);
-  transition: transform 0.3s ease-in-out;
+  opacity: 0.5;
+  transition: opacity 0.1s ease-in-out;
 } */
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
    ========================================== */
-.swiper-pagination {
+
+.speakers-pagination {
   position: relative;
-  bottom: auto;
-  left: auto;
-  right: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2px;
   width: 100%;
-  margin-top: 4%;
+  margin-top: 10px;
   /* background-color: #1f8a71; */
 }
 
