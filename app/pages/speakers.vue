@@ -1,52 +1,41 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import {
-  Pagination,
-  Parallax,
-  Navigation,
-  A11y,
-  EffectCreative,
-} from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/parallax";
-import "swiper/css/effect-creative";
-
-const modules = [Pagination, Navigation, A11y, Parallax, EffectCreative];
 
 const speakers = [
   {
     src: "/Marc Raibert.png",
     alt: "Marc Raibert",
-    robot: "/Atlas.png",
-    robotAlt: "Atlas",
+    role: "Founder & Chairman, Boston Dynamics | Executive Director, RAI Institute",
+    description:
+      "Renowned robotics expert who founded Boston Dynamics, a leader in mobile robots. Currently leads the Robotics and Artificial Intelligence Institute (RAI Institute), founded in 2022, focused on advancing robotics and AI technologies.",
   },
   {
     src: "/Elon Musk.png",
     alt: "Elon Musk",
-    robot: "/Optimus.png",
-    robotAlt: "Optimus",
+    role: "Founder & CEO, SpaceX | CEO, Tesla",
+    description:
+      "Entrepreneur and business magnate known for his involvement in various technology companies including Tesla, Inc. and SpaceX.",
   },
   {
     src: "/Brett Adcock.png",
     alt: "Brett Adcock",
-    robot: "/F.02.png",
-    robotAlt: "F.02",
+    role: "Founder & CEO, Figure AI",
+    description:
+      "American entrepreneur who previously founded Vettery (HR marketplace) and Archer Aviation (eVTOL aircraft). Self-funded and launched robotics company Figure AI in 2022, serving as its CEO.",
   },
   {
     src: "/Wang Xingxing.png",
     alt: "Wang Xingxing",
-    robot: "/Unitree G1.png",
-    robotAlt: "Unitree G1",
+    role: "Founder, CEO & CTO, Unitree Robotics",
+    description:
+      "Chinese roboticist and entrepreneur who founded Unitree Robotics in 2016. Graduated in mechatronics from Zhejiang Sci-Tech University and Shanghai University. Named to TIME's TIME100 AI list in 2025.",
   },
   {
     src: "/He Xiaopeng.png",
     alt: "He Xiaopeng",
-    robot: "/XPeng Iron.png",
-    robotAlt: "XPeng Iron",
+    role: "Co-founder & CEO, XPeng Motors",
+    description:
+      "Leads Chinese electric vehicle manufacturer XPeng Motors, developing EVs and AI technologies. Actively positions XPeng IRON robots and flying cars as the next major market, estimating robotics potential at tens of trillions of dollars.",
   },
 ];
 
@@ -119,9 +108,9 @@ const cardVariants = {
       </motion.div>
 
       <!-- Decktop -->
-      <div class="relative max-w-7xl w-full hidden sm:flex px-10">
+      <div class="relative max-w-7xl w-full">
         <div
-          class="relative flex w-full flex-wrap items-center justify-between"
+          class="relative w-full flex flex-col items-start justify-center gap-4"
         >
           <motion.div
             v-for="(speaker, index) in speakers"
@@ -131,176 +120,41 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-auto w-1/6 gap-2"
+            class="relative h-[8rem] w-full"
           >
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
+              class="relative flex items-start justify-center h-full w-full mx-auto gap-4"
             >
-              <!-- Вверхняя панель -->
+              <!-- Фото панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-4"
+                class="relative flex max-w-[15rem] w-full items-center justify-center h-full aspect-[4/3]"
               >
                 <div
-                  class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
-                >
-                  <div
-                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,1rem)] font-roboto text-white/80 text-nowrap -rotate-90 -skew-x-[19deg]"
-                  >
-                    {{ speaker.alt }}
-                  </div>
-                </div>
-                <div
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative rounded-sm w-full h-full bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.src"
                     :alt="speaker.alt"
-                    class="absolute object-cover h-full w-full right-3 -bottom-0 skew-x-[19deg]"
+                    class="absolute object-contain h-full w-full right-0 bottom-0"
                   />
                 </div>
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative aspect-[4/3] left-4 h-full w-full flex justify-center gap-1"
+                class="relative aspect-[4/3] h-full w-full flex flex-col justify-center items-start rounded-sm bg-gradient-to-r from-[#5f5f5f] to-[#303030] p-8"
               >
-                <div
-                  data-swiper-parallax-y="300"
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
-                >
-                  <NuxtImg
-                    :src="speaker.robot"
-                    :alt="speaker.robotAlt"
-                    class="absolute object-cover h-[90%] w-full right-1 -bottom-0 skew-x-[19deg]"
-                  />
+                <div class="relative flex flex-col items-start text-start font-display text-2xl  leading-6 text-white/80">
+                  {{ speaker.alt }}" <br />
+                  {{ speaker.role }}
                 </div>
-                <div
-                  data-swiper-parallax-y="-1200"
-                  class="relative w-[14%] h-full rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
-                >
-                  <div
-                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,1rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
-                  >
-                    {{ speaker.robotAlt }}
-                  </div>
+                <div class="relative mt-4 text-start font-roboto  text-white/80">
+                  {{ speaker.description }}
                 </div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-
-      <!-- Mobile -->
-      <motion.div
-        :initial="sectionVariants.hidden"
-        :whileInView="sectionVariants.visible"
-        :viewport="{ once: true, amount: 0.25 }"
-        class="relative h-full w-full sm:hidden"
-      >
-        <Swiper
-          :modules="modules"
-          :speed="800"
-          :effect="'creative'"
-          :parallax="true"
-          :slides-per-view="1"
-          :space-between="10"
-          :pagination="{ el: '.speakers-pagination', clickable: false }"
-          :navigation="{
-            nextEl: '.speakers-next',
-            prevEl: '.speakers-prev',
-          }"
-          :creativeEffect="{
-            prev: {
-              shadow: false,
-              translate: ['-100%', 0, 0],
-              rotate: [0, 0, 0],
-              opacity: 0,
-            },
-            next: {
-              translate: ['100%', 0, 0],
-              opacity: 1,
-            },
-          }"
-          class="h-full w-full flex items-center justify-center"
-        >
-          <SwiperSlide
-            v-for="(speaker, index) in speakers"
-            :key="speaker.src"
-            :custom="index"
-          >
-            <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
-            >
-              <!-- Вверхняя панель -->
-              <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-4"
-              >
-                <div
-                  data-swiper-parallax-y="1200"
-                  class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
-                >
-                  <div
-                    class="absolute bottom-4 left-0 right-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
-                  >
-                    {{ speaker.alt }}
-                  </div>
-                </div>
-                <div
-                  data-swiper-parallax-y="-300"
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
-                >
-                  <NuxtImg
-                    :src="speaker.src"
-                    :alt="speaker.alt"
-                    class="absolute object-cover h-full w-full right-3 -bottom-0 skew-x-[19deg]"
-                  />
-                </div>
-              </div>
-              <!-- Нижняя панель -->
-              <div
-                class="relative aspect-[4/3] left-4 h-full w-full flex justify-center gap-1"
-              >
-                <div
-                  data-swiper-parallax-y="300"
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
-                >
-                  <NuxtImg
-                    :src="speaker.robot"
-                    :alt="speaker.robotAlt"
-                    class="absolute object-cover h-[90%] w-full right-1 -bottom-0 skew-x-[19deg]"
-                  />
-                </div>
-                <div
-                  data-swiper-parallax-y="-1200"
-                  class="relative w-[14%] h-full rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
-                >
-                  <div
-                    class="absolute bottom-4 right-0 left-0 -translate-x-0 -translate-y-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
-                  >
-                    {{ speaker.robotAlt }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-        <!-- Arrows -->
-        <button
-          type="button"
-          class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-[3.5rem] items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
-          aria-label="Previous slide"
-        >
-          ‹
-        </button>
-        <button
-          type="button"
-          class="sm:hidden speakers-next absolute -right-2 top-1/2 z-10 flex h-16 w-9 -translate-y-[3.5rem] items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
-          aria-label="Next slide"
-        >
-          ›
-        </button>
-        <!-- Pagination -->
-        <div class="relative speakers-pagination py-5 w-full mx-auto"></div>
-      </motion.div>
 
       <!-- Bottom CTA -->
       <div class="w-full">
@@ -360,7 +214,7 @@ const cardVariants = {
 </template>
 
 <style>
-p {
+.font-roboto {
   font-family: Arial, sans-serif;
   font-weight: 100; /* Тонкий */
 }

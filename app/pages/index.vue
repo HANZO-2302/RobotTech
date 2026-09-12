@@ -95,14 +95,14 @@ const cardVariants = {
     </div>
 
     <div
-      class="relative max-w-7xl w-full mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-4 borde"
+      class="relative max-w-7xl w-full mx-auto flex flex-1 flex-col items-start justify-start overflow-hidden px-4"
     >
       <!-- Header -->
       <motion.div
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
         :viewport="{ once: true, amount: 0.25 }"
-        class="mx-auto mt-24 w-full text-center sm:text-start flex flex-col items-center justify-center"
+        class="mx-auto mt-28 w-full text-center sm:text-start flex flex-col items-center justify-center"
       >
         <div class="relative w-full z-10 flex flex-col items-start">
           <h1
@@ -113,7 +113,7 @@ const cardVariants = {
           </h1>
         </div>
         <div
-          class="relative w-full my-5 z-10 flex flex-col items-start text-center"
+          class="relative w-full my-5 z-10 flex flex-col items-start text-center sm:text-start"
         >
           <h2
             class="font-roboto font-extralight text-[clamp(0.875rem,4vw,1.7rem)] text-white/90 leading-[1.2] tracking-wide"
@@ -341,10 +341,10 @@ const cardVariants = {
             class="group flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-gradient-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
           >
             <NuxtLink
-              to="/speakers"
+              to="/contacts"
               class="relative font-display text-[clamp(1.5rem,2vw,1.5rem)] p-5 uppercase text-white drop-shadow-md text-center w-full"
             >
-              View Speakers
+              Secure your spot
             </NuxtLink>
 
             <span
