@@ -18,6 +18,18 @@ import "swiper/css/effect-creative";
 const modules = [Pagination, Navigation, A11y, Parallax, EffectCreative];
 
 const speakers = [
+    {
+    src: "/Elon Musk.png",
+    alt: "Elon Musk",
+    robot: "/Optimus.png",
+    robotAlt: "Optimus",
+  },
+    {
+    src: "/Elon Musk.png",
+    alt: "Elon Musk",
+    robot: "/Optimus.png",
+    robotAlt: "Optimus",
+  },
   {
     src: "/Elon Musk.png",
     alt: "Elon Musk",
@@ -127,9 +139,9 @@ const cardVariants = {
       </motion.div>
 
       <!-- Decktop -->
-      <div class="relative my-10 max-w-7xl w-full hidden sm:flex px-10">
+      <div class="relative my-10 max-w-7xl w-full hidden sm:flex px-8">
         <div
-          class="relative flex w-full flex-wrap items-center justify-between"
+          class="relative flex w-full items-start justify-center gap-8"
         >
           <motion.div
             v-for="(speaker, index) in speakers"
@@ -139,7 +151,7 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-auto w-1/6 gap-2"
+            class="relative h-auto w-1/6 flex flex-col items-start justify-start mx-auto"
           >
             <div
               class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
@@ -149,21 +161,21 @@ const cardVariants = {
                 class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 "
               >
                 <div
-                  class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative w-[14%] rounded-[1.5px] bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,0.9rem)] font-roboto font-thin text-white/80 text-nowrap -rotate-90 -skew-x-[19deg]"
+                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,0.7rem)] font-roboto font-thin text-white/80 text-nowrap -rotate-90 -skew-x-[19deg]"
                   >
                     {{ speaker.alt }}
                   </div>
                 </div>
                 <div
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative w-full overflow-hidden rounded-[1.5px] bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.src"
                     :alt="speaker.alt"
-                    class="absolute object-cover h-full w-full right-3 -bottom-0 skew-x-[19deg]"
+                    class="absolute object-cover h-full w-full right-[0.5vw] -bottom-0 skew-x-[19deg]"
                   />
                 </div>
               </div>
@@ -178,15 +190,15 @@ const cardVariants = {
                   <NuxtImg
                     :src="speaker.robot"
                     :alt="speaker.robotAlt"
-                    class="absolute object-cover h-[90%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                    class="absolute object-cover h-[90%] w-full right-[0.5vw] -bottom-0 skew-x-[19deg]"
                   />
                 </div>
                 <div
                   data-swiper-parallax-y="-1200"
-                  class="relative w-[14%] h-full rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                  class="relative w-[14%] h-full rounded-[1.5px] bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,1rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,0.7rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
                   >
                     {{ speaker.robotAlt }}
                   </div>
