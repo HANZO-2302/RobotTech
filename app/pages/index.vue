@@ -37,7 +37,7 @@ const speakers = [
     robotAlt: "Anthropic",
   },
   {
-    src: "/Marc Raibert1.png",
+    src: "/Marc Raibert.png",
     alt: "Marc Raibert",
     robot: "/Atlas.png",
     robotAlt: "Atlas",
