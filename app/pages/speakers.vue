@@ -2,6 +2,13 @@
 import { motion } from "motion-v";
 
 const speakers = [
+    {
+    src: "/Elon Musk.png",
+    alt: "Elon Musk",
+    role: "Founder & CEO, SpaceX | CEO, Tesla",
+    description:
+      "Entrepreneur and business magnate known for his involvement in various technology companies including Tesla, Inc. and SpaceX.",
+  },
   {
     src: "/Marc Raibert.png",
     alt: "Marc Raibert",
@@ -9,13 +16,7 @@ const speakers = [
     description:
       "Renowned robotics expert who founded Boston Dynamics, a leader in mobile robots. Currently leads the Robotics and Artificial Intelligence Institute (RAI Institute), founded in 2022, focused on advancing robotics and AI technologies.",
   },
-  {
-    src: "/Elon Musk.png",
-    alt: "Elon Musk",
-    role: "Founder & CEO, SpaceX | CEO, Tesla",
-    description:
-      "Entrepreneur and business magnate known for his involvement in various technology companies including Tesla, Inc. and SpaceX.",
-  },
+
   {
     src: "/Brett Adcock1.png",
     alt: "Brett Adcock",
@@ -95,7 +96,7 @@ const cardVariants = {
       >
         <div class="relative w-full z-10">
           <h1
-            class="text-[clamp(1.7rem,3vw,4rem)] text-center md:text-start leading-[0.95] tracking-wide text-white/90"
+            class="text-[clamp(1.7rem,3vw,4rem)] text-center text-balance md:text-start leading-[0.95] tracking-wide text-white/90"
           >
             World-class speakers shaping the future of robotics and AI
           </h1>
@@ -110,7 +111,7 @@ const cardVariants = {
       <!-- Decktop -->
       <div class="relative max-w-7xl w-full hidden md:flex">
         <div
-          class="relative w-full flex flex-col items-start justify-center gap-20 "
+          class="relative w-full flex flex-col items-start justify-center gap-[3vw] "
         >
           <motion.div
             v-for="(speaker, index) in speakers"
@@ -120,7 +121,7 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-10"
+            class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-[0.3vw]"
           >
 
               <!-- Фото панель -->
@@ -139,13 +140,13 @@ const cardVariants = {
               </div>
               <!-- Описание панель -->
               <div
-                class="relative aspect-[4/3] h-full w-full flex flex-col justify-center items-start rounded-sm bg-gradient-to-r from-[#5f5f5f] to-[#303030] p-8"
+                class="relative h-full w-full flex flex-col justify-center items-start rounded-sm bg-gradient-to-r from-[#5f5f5f] to-[#303030] px-[1vw] overflow-hidden"
               >
-                <div class="relative flex flex-col items-start text-start font-display text-2xl  leading-6 text-white/80">
+                <div class="relative flex flex-col items-start text-start font-display text-[clamp(10px,1.5vw,25px)]  leading-[110%] text-white/80">
                   {{ speaker.alt }}" <br />
                   {{ speaker.role }}
                 </div>
-                <div class="relative mt-4 text-start font-roboto  text-white/80">
+                <div class="relative mt-[1%] text-start font-roboto text-[clamp(4px,1vw,14px)] text-balance leading-[110%]  text-white/80">
                   {{ speaker.description }}
                 </div>
               </div>
@@ -202,7 +203,7 @@ const cardVariants = {
           <h3
             class="mt-1 text-sm font-sans uppercase text-white/80 sm:text-base"
           >
-            International Conference · Berlin · May 2026 ·
+            International Conference · Berlin · October 2026 ·
           </h3>
         </motion.div>
       </div>
@@ -211,10 +212,10 @@ const cardVariants = {
 </template>
 
 <style>
-.font-roboto {
+/* .font-roboto {
   font-family: Arial, sans-serif;
-  font-weight: 100; /* Тонкий */
-}
+  font-weight: 100;
+} */
 /* .swiper-slide-active {
   opacity: 1;
   transition: opacity 0.1s ease-in-out;

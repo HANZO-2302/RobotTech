@@ -19,17 +19,18 @@ const modules = [Pagination, Navigation, A11y, Parallax, EffectCreative];
 
 const speakers = [
   {
-    src: "/Marc Raibert.png",
-    alt: "Marc Raibert",
-    robot: "/Atlas.png",
-    robotAlt: "Atlas",
-  },
-  {
     src: "/Elon Musk.png",
     alt: "Elon Musk",
     robot: "/Optimus.png",
     robotAlt: "Optimus",
   },
+  {
+    src: "/Marc Raibert.png",
+    alt: "Marc Raibert",
+    robot: "/Atlas.png",
+    robotAlt: "Atlas",
+  },
+
   {
     src: "/Brett Adcock.png",
     alt: "Brett Adcock",
@@ -116,7 +117,7 @@ const cardVariants = {
           class="relative w-full my-5 z-10 flex flex-col items-start text-center sm:text-start"
         >
           <h2
-            class="font-roboto font-extralight text-[clamp(0.875rem,4vw,1.7rem)] text-white/90 leading-[1.2] tracking-wide"
+            class="font-roboto font-extralight text-[clamp(0.875rem,4vw,1.7rem)] text-balance text-white/90 leading-[1.2] tracking-wide"
           >
             Connect with engineers, founders, and AI leaders shaping the next
             generation of robotics.
@@ -145,7 +146,7 @@ const cardVariants = {
             >
               <!-- Вверхняя панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-3"
+                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 "
               >
                 <div
                   class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
@@ -168,7 +169,7 @@ const cardVariants = {
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative aspect-[4/3] left-4 h-full w-full flex justify-center gap-1"
+                class="relative aspect-[4/3] left-[14%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax-y="300"
@@ -354,7 +355,7 @@ const cardVariants = {
           <h3
             class="mt-1 text-sm font-sans uppercase text-white/80 sm:text-base"
           >
-            International Conference · Berlin · May 2026 · 
+            International Conference · Berlin · October 2026 ·
           </h3>
         </motion.div>
       </div>
