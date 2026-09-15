@@ -19,7 +19,7 @@ const modules = [Pagination, Navigation, A11y, Parallax, EffectCreative];
 
 const speakers = [
     {
-    src: "/Elon Musk2.png",
+    src: "/Elon Musk.png",
     alt: "Elon Musk",
     robot: "/Optimus.png",
     robotAlt: "Optimus",
