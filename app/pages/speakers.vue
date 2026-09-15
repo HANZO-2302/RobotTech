@@ -17,7 +17,7 @@ const speakers = [
       "Entrepreneur and business magnate known for his involvement in various technology companies including Tesla, Inc. and SpaceX.",
   },
   {
-    src: "/Brett Adcock.png",
+    src: "/Brett Adcock1.png",
     alt: "Brett Adcock",
     role: "Founder & CEO, Figure AI",
     description:
@@ -73,7 +73,7 @@ const cardVariants = {
  /> -->
   <div class="relative flex flex-1 flex-col items-start justify-start">
     <!-- Background -->
-    <!-- <div
+    <div
       class="pointer-events-none absolute right-0 bottom-0 z-0 w-full sm:w-auto"
     >
       <img
@@ -81,7 +81,7 @@ const cardVariants = {
         alt=""
         class="block h-auto w-full object-contain object-bottom opacity-40 sm:h-screen"
       />
-    </div> -->
+    </div>
 
     <div
       class="relative max-w-7xl w-full mx-auto flex flex-col items-start justify-center overflow-hidden px-4"
@@ -108,9 +108,9 @@ const cardVariants = {
       </motion.div>
 
       <!-- Decktop -->
-      <div class="relative max-w-7xl w-full">
+      <div class="relative max-w-7xl w-full hidden md:flex">
         <div
-          class="relative w-full flex flex-col items-start justify-center gap-4"
+          class="relative w-full flex flex-col items-start justify-center gap-20 "
         >
           <motion.div
             v-for="(speaker, index) in speakers"
@@ -120,26 +120,24 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-[8rem] w-full"
+            class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-10"
           >
-            <div
-              class="relative flex items-start justify-center h-full w-full mx-auto gap-4"
-            >
+
               <!-- Фото панель -->
               <div
-                class="relative flex max-w-[15rem] w-full items-center justify-center h-full aspect-[4/3]"
+                class="relative max-w-[12vw] w-full h-full flex items-center justify-center"
               >
                 <div
-                  class="relative rounded-sm w-full h-full bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative rounded-sm w-full h-full overflow-hidden bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.src"
                     :alt="speaker.alt"
-                    class="absolute object-contain h-full w-full right-0 bottom-0"
+                    class="absolute object-cover h-full w-auto bottom-0"
                   />
                 </div>
               </div>
-              <!-- Нижняя панель -->
+              <!-- Описание панель -->
               <div
                 class="relative aspect-[4/3] h-full w-full flex flex-col justify-center items-start rounded-sm bg-gradient-to-r from-[#5f5f5f] to-[#303030] p-8"
               >
@@ -151,7 +149,6 @@ const cardVariants = {
                   {{ speaker.description }}
                 </div>
               </div>
-            </div>
           </motion.div>
         </div>
       </div>

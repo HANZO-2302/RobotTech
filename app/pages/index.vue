@@ -151,7 +151,7 @@ const cardVariants = {
                   class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,1rem)] font-roboto text-white/80 text-nowrap -rotate-90 -skew-x-[19deg]"
+                    class="absolute bottom-2 left-0 right-0 text-[clamp(0.5rem,1vw,0.9rem)] font-roboto font-thin text-white/80 text-nowrap -rotate-90 -skew-x-[19deg]"
                   >
                     {{ speaker.alt }}
                   </div>
@@ -246,7 +246,7 @@ const cardVariants = {
                   class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-4 left-0 right-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                    class="absolute bottom-4 left-0 right-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto font-extralight text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
                   >
                     {{ speaker.alt }}
                   </div>
@@ -281,7 +281,7 @@ const cardVariants = {
                   class="relative w-[14%] h-full rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-4 right-0 left-0 -translate-x-0 -translate-y-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                    class="absolute bottom-4 right-0 left-0 -translate-x-0 -translate-y-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto font-extralight text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
                   >
                     {{ speaker.robotAlt }}
                   </div>
@@ -363,10 +363,10 @@ const cardVariants = {
 </template>
 
 <style>
-p {
+/* p {
   font-family: Arial, sans-serif;
-  font-weight: 100; /* Тонкий */
-}
+  font-weight: 100;
+ } */
 /* ==========================================
    ОБЩИЕ СТИЛИ SWIPER
    ========================================== */
