@@ -165,11 +165,16 @@ const cardVariants = {
             delay: 0.25,
             ease: 'easeOut',
           }"
-          class="relative mb-10 mt-10 flex flex-col items-center md:items-start text-center justify-center gap-2"
+          class="relative my-10 flex flex-col items-center md:items-start text-center justify-center"
         >
           <span class="text-sm font-sans uppercase text-white/80 sm:text-base">
-            5+ Industry Leaders
+            7+ Industry Leaders
           </span>
+                    <h3
+            class=" mb-1 text-sm font-sans uppercase text-white/80 sm:text-base"
+          >
+            International Conference · Berlin · October 2026 ·
+          </h3>
 
           <motion.button
             :whileHover="{
@@ -200,11 +205,6 @@ const cardVariants = {
               class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
             ></span>
           </motion.button>
-          <h3
-            class="mt-1 text-sm font-sans uppercase text-white/80 sm:text-base"
-          >
-            International Conference · Berlin · October 2026 ·
-          </h3>
         </motion.div>
       </div>
     </div>
