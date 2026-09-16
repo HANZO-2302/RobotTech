@@ -93,6 +93,13 @@ const cardVariants = {
 </script>
 
 <template>
+  <!-- bg-[url('/images/Ch1.webp')]
+    bg-cover
+    bg-center
+    bg-no-repeat
+    before:absolute
+    before:inset-0
+    before:bg-black/60 -->
   <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
  /> -->
   <div class="relative flex flex-1 flex-col items-center justify-center overscroll-auto">
@@ -119,7 +126,7 @@ const cardVariants = {
       >
         <div class="relative w-full z-10 flex flex-col items-start">
           <h1
-            class="font-bold text-[clamp(2.75rem,13vw,5.5rem)] leading-[0.95] tracking-wide text-white/90"
+            class="font-bold text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.95] tracking-wide text-white/90"
           >
             RobotTech Conference
             <!-- <br /> -->
@@ -323,7 +330,7 @@ const cardVariants = {
       </motion.div>
 
       <!-- Bottom CTA -->
-      <div class="w-full">
+      <div class="w-full mt-[clamp(20px,1vw,80px)]">
         <motion.div
           :initial="{ opacity: 0, y: -30 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -355,9 +362,9 @@ const cardVariants = {
           >
             <NuxtLink
               to="/contacts"
-              class="relative font-display text-[clamp(1.5rem,2vw,1.5rem)] p-5 uppercase text-white drop-shadow-md text-center w-full"
+              class="relative font-display text-[clamp(1rem,2vw,1.2rem)] p-5 uppercase text-white drop-shadow-md text-center w-full"
             >
-              Secure your spot
+              Register now
             </NuxtLink>
 
             <span
