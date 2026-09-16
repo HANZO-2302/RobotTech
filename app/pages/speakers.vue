@@ -96,7 +96,7 @@ const cardVariants = {
       >
         <div class="relative w-full z-10">
           <h1
-            class="text-[clamp(1.7rem,5vw,8rem)] text-center text-balance md:text-start leading-[0.95] tracking-wide text-white/90"
+            class="text-[clamp(1.7rem,5vw,4rem)] text-center text-balance md:text-start leading-[0.95] tracking-wide text-white/90"
           >
             World-class speakers shaping the future of robotics and AI
           </h1>

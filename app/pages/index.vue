@@ -18,14 +18,14 @@ import "swiper/css/effect-creative";
 const modules = [Pagination, Navigation, A11y, Parallax, EffectCreative];
 
 const speakers = [
-    {
+  {
     src: "/Elon Musk.png",
     alt: "Elon Musk",
     robot: "/Optimus.png",
     robotAlt: "Optimus",
   },
-    {
-    src: "/Sam Altman.png",
+  {
+    src: "/Sam Altman.webp",
     alt: "Sam Altman",
     robot: "/chatgpt.svg",
     robotAlt: "OpenAI",
@@ -102,7 +102,9 @@ const cardVariants = {
     before:bg-black/60 -->
   <!-- <div class="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:45px_45px]"
  /> -->
-  <div class="relative flex flex-1 flex-col items-center justify-center overscroll-auto">
+  <div
+    class="relative flex flex-1 flex-col items-center justify-center overscroll-auto"
+  >
     <!-- Background -->
     <div
       class="pointer-events-none absolute right-0 bottom-0 z-0 w-full sm:w-auto"
@@ -147,9 +149,7 @@ const cardVariants = {
 
       <!-- Decktop -->
       <div class="relative my-6 max-w-7xl w-full hidden sm:flex px-8">
-        <div
-          class="relative flex w-full items-start justify-center gap-x-[3%] "
-        >
+        <div class="relative flex w-full items-start justify-center gap-x-[3%]">
           <motion.div
             v-for="(speaker, index) in speakers"
             :key="speaker.src"
@@ -158,14 +158,14 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :viewport="{ once: true, amount: 0.25 }"
-            class="relative h-auto w-full flex flex-col items-start justify-start mx-auto "
+            class="relative h-auto w-full flex flex-col items-start justify-start mx-auto"
           >
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] h-full w-full gap-y-1 mx-auto "
+              class="relative flex flex-col items-center justify-center -skew-x-[19deg] h-full w-full gap-y-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 "
+                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1"
               >
                 <div
                   class="relative w-[20%] rounded-[1.5px] bg-gradient-to-b from-[#60827d] to-[#246057]"
@@ -327,6 +327,23 @@ const cardVariants = {
         </button>
         <!-- Pagination -->
         <div class="relative speakers-pagination py-5 w-full mx-auto"></div>
+      </motion.div>
+      <motion.div
+        :initial="{ opacity: 0, y: -30 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :viewport="{ once: true }"
+        :transition="{
+          duration: 0.5,
+          delay: 0.25,
+          ease: 'easeOut',
+        }"
+        class="relative my-5 flex items-center justify-center mx-auto overflow-hidden "
+      >
+        <span
+          class="flex justify-center items-center w-full text-[clamp(22px,5vw,66px)] rounded-md bg-zinc-800 text-white/90 text-balance p-4 border"
+        >
+          · Berlin · 15-20 · October 2026 ·
+        </span>
       </motion.div>
 
       <!-- Bottom CTA -->
