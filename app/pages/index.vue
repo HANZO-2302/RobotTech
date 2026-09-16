@@ -337,10 +337,10 @@ const cardVariants = {
           delay: 0.25,
           ease: 'easeOut',
         }"
-        class="relative my-5 flex items-center justify-center mx-auto overflow-hidden "
+        class="relative my-1 w-full flex items-center justify-center mx-auto overflow-hidden"
       >
         <span
-          class="flex justify-center items-center w-full text-[clamp(22px,5vw,66px)] rounded-md bg-zinc-800 text-white/90 text-balance p-4 border"
+          class="flex justify-center md:justify-start items-center text-center text-nowrap w-full text-[clamp(15px,5vw,66px)] rounded-md bg-zinc-800/0 text-white/90"
         >
           · Berlin · 15-20 · October 2026 ·
         </span>
@@ -357,11 +357,16 @@ const cardVariants = {
             delay: 0.25,
             ease: 'easeOut',
           }"
-          class="relative mb-10 flex flex-col items-center md:items-start text-center justify-center gap-2"
+          class="relative mb-10 flex flex-col items-center md:items-start text-center justify-center"
         >
-          <span class="text-sm font-sans uppercase text-white/80 sm:text-base">
-            5+ Industry Leaders
+          <span class="text-sm font-sans uppercase text-white/80 sm:text-base ">
+            7+ Industry Leaders
           </span>
+          <h3
+            class=" mb-1 text-sm font-sans uppercase text-white/80 sm:text-base"
+          >
+            International Conference
+          </h3>
 
           <motion.button
             :whileHover="{
@@ -388,11 +393,6 @@ const cardVariants = {
               class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
             ></span>
           </motion.button>
-          <h3
-            class="mt-1 text-sm font-sans uppercase text-white/80 sm:text-base"
-          >
-            International Conference · Berlin · October 2026 ·
-          </h3>
         </motion.div>
       </div>
     </div>
