@@ -122,25 +122,25 @@ const errorText =
     id="form"
     class="flex justify-start w-full max-w-6xl mx-auto mt-28 px-4"
   >
-    <div class="w-full flex flex-col lg:flex-row items-start gap-5">
+    <div class="w-full flex flex-col lg:flex-row  gap-5">
       <!-- LEFT -->
-      <div class="w-full lg:w-1/2 flex flex-col gap-2  text-white">
+      <div class="w-full lg:w-1/2 h-[376px] flex flex-col   text-white">
         <h1
-          class="relative text-[clamp(1.7rem,5vw,2rem)] mb-4 text-start md:text-start leading-[0.95] tracking-wide text-white/90"
+          class="relative text-[clamp(1.7rem,5vw,2rem)] text-start md:text-start leading-[0.95] tracking-wide text-white/90"
         >
           The future of technology starts here
         </h1>
-        <!-- <p
-          class="relative text-sm font-light sm:text-lg lg:text-md lg:bottom-6 text-white/80 leading-7 mb-9"
+        <p
+          class="relative my-4 text-xs  text-white/80 leading-4"
         >
           Register for the conference and join experts, innovators, and
           technology enthusiasts shaping the future of AI and robotics.
-        </p> -->
+        </p>
         <div
-          class="relative w-full aspect-[16/9] overflow-hidden rounded-md border border-white/20"
+          class="relative aspect-square w-full overflow-hidden rounded-md border border-white/20"
         >
           <NuxtImg
-            src="/images/Ch1.webp"
+            src="/images/Ch3.webp"
             alt="background"
             class="absolute inset-0 w-full h-full object-cover"
           />
@@ -193,7 +193,7 @@ const errorText =
       <!-- RIGHT — FORM -->
       <form
         novalidate
-        class="w-full lg:w-1/2 flex flex-col gap-2"
+        class="w-full lg:w-1/2  flex flex-col gap-2"
         @submit.prevent="onSubmit"
       >
         <!-- Имя + Телефон -->
