@@ -123,7 +123,7 @@ const cardVariants = {
       <motion.div
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
-        :viewport="{ once: true, amount: 0.25 }"
+        :inViewOptions="{ once: true, amount: 0.25 }"
         class="mx-auto mt-28 w-full text-center sm:text-start flex flex-col items-center justify-center"
       >
         <div class="relative w-full z-10 flex flex-col items-start">
@@ -157,7 +157,7 @@ const cardVariants = {
             :variants="cardVariants"
             initial="hidden"
             whileInView="visible"
-            :viewport="{ once: true, amount: 0.25 }"
+            :inViewOptions="{ once: true, amount: 0.25 }"
             class="relative h-auto w-full flex flex-col items-start justify-start mx-auto"
           >
             <div
@@ -220,7 +220,7 @@ const cardVariants = {
       <motion.div
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
-        :viewport="{ once: true, amount: 0.25 }"
+        :inViewOptions="{ once: true, amount: 0.25 }"
         class="relative h-full w-full sm:hidden"
       >
         <Swiper
@@ -331,7 +331,7 @@ const cardVariants = {
       <motion.div
         :initial="{ opacity: 0, y: -30 }"
         :whileInView="{ opacity: 1, y: 0 }"
-        :viewport="{ once: true }"
+        :inViewOptions="{ once: true }"
         :transition="{
           duration: 0.5,
           delay: 0.25,
@@ -351,7 +351,7 @@ const cardVariants = {
         <motion.div
           :initial="{ opacity: 0, y: -30 }"
           :whileInView="{ opacity: 1, y: 0 }"
-          :viewport="{ once: true }"
+          :inViewOptions="{ once: true }"
           :transition="{
             duration: 0.5,
             delay: 0.25,
@@ -359,11 +359,11 @@ const cardVariants = {
           }"
           class="relative mb-10 flex flex-col items-center md:items-start text-center justify-center"
         >
-          <span class="text-sm font-sans uppercase text-white/80 sm:text-base ">
+          <span class="text-sm font-sans uppercase text-white/80 sm:text-base">
             7+ Industry Leaders
           </span>
           <h3
-            class=" mb-1 text-sm font-sans uppercase text-white/80 sm:text-base"
+            class="mb-1 text-sm font-sans uppercase text-white/80 sm:text-base"
           >
             International Conference
           </h3>

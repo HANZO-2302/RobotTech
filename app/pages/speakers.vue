@@ -2,12 +2,27 @@
 import { motion } from "motion-v";
 
 const speakers = [
-    {
+  {
     src: "/Elon Musk.png",
     alt: "Elon Musk",
     role: "Founder & CEO, SpaceX | CEO, Tesla",
     description:
       "Entrepreneur and business magnate known for his involvement in various technology companies including Tesla, Inc. and SpaceX.",
+  },
+  {
+    src: "/Sam Altman.webp",
+    alt: "Sam Altman",
+    role: "CEO, OpenAI",
+    description:
+      "Technology entrepreneur and CEO of OpenAI, the company behind ChatGPT and other advanced artificial intelligence systems.",
+  },
+
+  {
+    src: "/Dario Amodei.png",
+    alt: "Dario Amodei",
+    role: "Co-founder & CEO, Anthropic",
+    description:
+      "AI researcher and entrepreneur, co-founder and CEO of Anthropic, focused on developing reliable and safe artificial intelligence systems.",
   },
   {
     src: "/Marc Raibert.png",
@@ -111,7 +126,7 @@ const cardVariants = {
       <!-- Decktop -->
       <div class="relative max-w-7xl w-full hidden md:flex">
         <div
-          class="relative w-full flex flex-col items-start justify-center gap-[3vw] "
+          class="relative w-full flex flex-col items-start justify-center gap-[3vw]"
         >
           <motion.div
             v-for="(speaker, index) in speakers"
@@ -123,33 +138,36 @@ const cardVariants = {
             :viewport="{ once: true, amount: 0.25 }"
             class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-[0.3vw]"
           >
-
-              <!-- Фото панель -->
+            <!-- Фото панель -->
+            <div
+              class="relative max-w-[12vw] w-full h-full flex items-center justify-center"
+            >
               <div
-                class="relative max-w-[12vw] w-full h-full flex items-center justify-center"
+                class="relative rounded-sm w-full h-full overflow-hidden bg-gradient-to-b from-[#60827d] to-[#246057]"
               >
-                <div
-                  class="relative rounded-sm w-full h-full overflow-hidden bg-gradient-to-b from-[#60827d] to-[#246057]"
-                >
-                  <NuxtImg
-                    :src="speaker.src"
-                    :alt="speaker.alt"
-                    class="absolute object-cover h-full w-auto bottom-0"
-                  />
-                </div>
+                <NuxtImg
+                  :src="speaker.src"
+                  :alt="speaker.alt"
+                  class="absolute object-cover h-full w-auto bottom-0"
+                />
               </div>
-              <!-- Описание панель -->
+            </div>
+            <!-- Описание панель -->
+            <div
+              class="relative h-full w-full flex flex-col justify-center items-start rounded-sm bg-gradient-to-r from-[#5f5f5f] to-[#303030] px-[1vw] overflow-hidden"
+            >
               <div
-                class="relative h-full w-full flex flex-col justify-center items-start rounded-sm bg-gradient-to-r from-[#5f5f5f] to-[#303030] px-[1vw] overflow-hidden"
+                class="relative flex flex-col items-start text-start font-display text-[clamp(10px,1.5vw,25px)] leading-[110%] text-white/80"
               >
-                <div class="relative flex flex-col items-start text-start font-display text-[clamp(10px,1.5vw,25px)]  leading-[110%] text-white/80">
-                  {{ speaker.alt }}" <br />
-                  {{ speaker.role }}
-                </div>
-                <div class="relative mt-[1%] text-start font-roboto text-[clamp(4px,1vw,14px)] text-balance leading-[110%]  text-white/80">
-                  {{ speaker.description }}
-                </div>
+                {{ speaker.alt }} <br />
+                {{ speaker.role }}
               </div>
+              <div
+                class="relative mt-[1%] text-start font-roboto text-[clamp(4px,1vw,14px)] text-balance leading-[110%] text-white/80"
+              >
+                {{ speaker.description }}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -170,8 +188,8 @@ const cardVariants = {
           <span class="text-sm font-sans uppercase text-white/80 sm:text-base">
             7+ Industry Leaders
           </span>
-                    <h3
-            class=" mb-1 text-sm font-sans uppercase text-white/80 sm:text-base"
+          <h3
+            class="mb-1 text-sm font-sans uppercase text-white/80 sm:text-base"
           >
             International Conference · Berlin · October 2026 ·
           </h3>
