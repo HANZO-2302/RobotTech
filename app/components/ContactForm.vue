@@ -96,6 +96,21 @@ const onSubmit = handleSubmit(async (values) => {
   }
 });
 
+const sectionVariants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
 const inputBase =
   "w-full bg-gray-200 rounded-xl px-4 py-3 outline-none transition focus:ring-2 focus:ring-[#5e9463] placeholder:text-gray-500 text-gray-800";
 const errorText =
@@ -105,29 +120,32 @@ const errorText =
 <template>
   <section
     id="form"
-    class="flex mt-14 justify-center md:py-20 md:px-10 py-10 px-4"
+    class="flex justify-start w-full max-w-6xl mx-auto mt-28 px-4"
   >
-    <div
-      class="max-w-5xl w-full flex flex-col lg:flex-row justify-between items-start gap-10"
-    >
+    <div class="w-full flex flex-col lg:flex-row items-start gap-5">
       <!-- LEFT -->
-      <div class="max-w-full md:max-w-150 md:mt-5 text-white">
+      <div class="w-full lg:w-1/2 flex flex-col gap-2  text-white">
         <h1
-          class="relative text-3xl md:text-left sm:text-4xl lg:text-4xl lg:bottom-6 font-medium mb-5"
+          class="relative text-[clamp(1.7rem,5vw,2rem)] mb-4 text-start md:text-start leading-[0.95] tracking-wide text-white/90"
         >
-          lorem ipsum dolor sit amet <br />
-          lorem ipsum dolor sit <br />
-          Sed do eiusmod tempor
+          The future of technology starts here
         </h1>
-
-        <p
+        <!-- <p
           class="relative text-sm font-light sm:text-lg lg:text-md lg:bottom-6 text-white/80 leading-7 mb-9"
         >
-          lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-
+          Register for the conference and join experts, innovators, and
+          technology enthusiasts shaping the future of AI and robotics.
+        </p> -->
         <div
+          class="relative w-full aspect-[16/9] overflow-hidden rounded-md border border-white/20"
+        >
+          <NuxtImg
+            src="/images/Ch1.webp"
+            alt="background"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        <!-- <div
           class="flex md:mt-14 md:justify-start justify-center items-center gap-9"
         >
           <a
@@ -169,13 +187,13 @@ const errorText =
               class="w-10 h-10 object-contain hover:scale-110 hover:-translate-y-2 transition-all duration-200 ease-in-out drop-shadow-lg"
             />
           </a>
-        </div>
+        </div> -->
       </div>
 
       <!-- RIGHT — FORM -->
       <form
         novalidate
-        class="w-full lg:max-w-lg flex flex-col gap-2"
+        class="w-full lg:w-1/2 flex flex-col gap-2"
         @submit.prevent="onSubmit"
       >
         <!-- Имя + Телефон -->
@@ -403,9 +421,8 @@ const errorText =
                         <div className="w-full border-b border-gray-500"></div>
 
                         <!-- ... -->
-                         <button @click="isOpen = false">Close</button>
+                        <button @click="isOpen = false">Close</button>
                       </DialogPanel>
-                      
                     </div>
                   </div>
                 </Dialog>

@@ -106,12 +106,12 @@ const cardVariants = {
       <motion.div
         :initial="sectionVariants.hidden"
         :whileInView="sectionVariants.visible"
-        :viewport="{ once: true, amount: 0.25 }"
+        :inViewOptions="{ once: true, amount: 0.25 }"
         class="mx-auto w-full sm:text-start mt-28 flex flex-col items-center justify-center"
       >
         <div class="relative w-full z-10">
           <h1
-            class="text-[clamp(1.7rem,5vw,4rem)] text-center text-balance md:text-start leading-[0.95] tracking-wide text-white/90"
+            class="text-[clamp(1.7rem,5vw,4rem)] text-start text-balance leading-[0.95] tracking-wide text-white/90"
           >
             World-class speakers shaping the future of robotics and AI
           </h1>
@@ -124,7 +124,7 @@ const cardVariants = {
       </motion.div>
 
       <!-- Decktop -->
-      <div class="relative max-w-7xl w-full hidden md:flex">
+      <div class="relative max-w-7xl w-full hidden md:flex px-4">
         <div
           class="relative w-full flex flex-col items-start justify-center gap-[3vw]"
         >
@@ -135,7 +135,7 @@ const cardVariants = {
             :variants="cardVariants"
             initial="hidden"
             whileInView="visible"
-            :viewport="{ once: true, amount: 0.25 }"
+            :inViewOptions="{ once: true, amount: 0.25 }"
             class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-[0.3vw]"
           >
             <!-- Фото панель -->
@@ -177,7 +177,7 @@ const cardVariants = {
         <motion.div
           :initial="{ opacity: 0, y: -30 }"
           :whileInView="{ opacity: 1, y: 0 }"
-          :viewport="{ once: true }"
+          :inViewOptions="{ once: true }"
           :transition="{
             duration: 0.5,
             delay: 0.25,
