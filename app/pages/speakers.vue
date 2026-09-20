@@ -144,6 +144,7 @@ const cardVariants = {
         <div
           class="relative w-full flex flex-col items-start justify-center gap-[3vw]"
         >
+        
           <motion.div
             v-for="(speaker, index) in speakers"
             :key="speaker.src"
@@ -152,8 +153,32 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :inViewOptions="{ once: true, amount: 0.25 }"
-            class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-[0.3vw] border/ pl-5"
+            class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-[0.3vw] pl-5"
           >
+            <!-- Точка -->
+            <!-- <div 
+              class="relative flex justify-center items-center -left-9 -bottom-0"
+            >
+              <div class="absolute w-5 h-5 rounded-full bg-zinc-300" />
+              <div class="absolute w-4 h-4 rounded-full bg-zinc-700" />
+              <div class="absolute w-2 h-2 rounded-full bg-zinc-300" />
+            </div> -->
+            <!-- Линия-разделитель между карточками (не рендерим после последней) -->
+            <div
+              v-if="index < speakers.length - 1"
+              class="absolute left-[2vw] bottom-[-1.5vw] w-[45%] h-px bg-linear-to-r from-white/60 to-transparent pointer-events-none "
+            >
+            <div 
+              class="absolute flex justify-center items-center -left-15 bottom-0"
+            >
+              <div class="absolute w-5 h-5 rounded-full bg-zinc-300" />
+              <div class="absolute w-4 h-4 rounded-full bg-zinc-700" />
+              <div class="absolute w-2 h-2 rounded-full bg-zinc-300" />
+            </div>
+              <span
+                class="absolute -left-0.5 -top-0.75 w-1.5 h-1.5 rounded-full bg-white/80"
+              ></span>
+            </div>
             <!-- Фото панель -->
             <div
               class="relative max-w-[12vw] w-full h-full flex items-center justify-center"
