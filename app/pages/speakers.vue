@@ -169,7 +169,7 @@ const cardVariants = {
               class="absolute left-[2vw] bottom-[-1.5vw] w-[45%] h-px bg-linear-to-r from-white/60 to-transparent pointer-events-none "
             >
             <div 
-              class="absolute flex justify-center items-center -left-15 bottom-0"
+              class="absolute flex justify-center items-center -left-11 bottom-0"
             >
               <div class="absolute w-5 h-5 rounded-full bg-zinc-300" />
               <div class="absolute w-4 h-4 rounded-full bg-zinc-700" />
