@@ -127,14 +127,20 @@ const cardVariants = {
 
       <!-- Decktop -->
       <div class="relative max-w-7xl w-full hidden md:flex px-4">
-        <div
-          className="line absolute left-0 bottom-0  h-1/2 w-0.5  bg-linear-0 from-[#303030]  to-white/80 border/ pointer-events-none "
+        <motion.div
+          :initial="{ opacity: 0 }"
+          :whileInView="{ opacity: 1 }"
+          :inViewOptions="{ once: true, amount: 0.25 }"
         >
-          <!-- <NuxtImg src="/images/Rectangle.svg" alt="Line"></NuxtImg> -->
-        </div>
-        <div
-          className="line absolute top-0 left-0 h-1/2 w-0.5  bg-linear-0 from-white/80  to-[#303030] pointer-events-none "
-        ></div>
+          <div
+            className="line absolute left-0 bottom-0  h-1/2 w-0.5  bg-linear-0 from-[#303030]  to-white/80 border/ pointer-events-none "
+          >
+            <!-- <NuxtImg src="/images/Rectangle.svg" alt="Line"></NuxtImg> -->
+          </div>
+          <div
+            className="line absolute top-0 left-0 h-1/2 w-0.5  bg-linear-0 from-white/80  to-[#303030] pointer-events-none "
+          ></div>
+        </motion.div>
         <div
           class="relative w-full flex flex-col items-start justify-center gap-[3vw]"
         >
