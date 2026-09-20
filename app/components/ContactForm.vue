@@ -124,14 +124,14 @@ const errorText =
   >
     <div class="w-full flex flex-col lg:flex-row  gap-5">
       <!-- LEFT -->
-      <div class="w-full lg:w-1/2 h-[376px] flex flex-col   text-white">
+      <div class="w-full lg:w-1/2 h-94 flex flex-col text-white">
         <h1
-          class="relative text-[clamp(1.7rem,5vw,2rem)] text-start md:text-start leading-[0.95] tracking-wide text-white/90"
+          class="relative text-[clamp(36px,5vw,34px)] text-balance text-start leading-[0.95] tracking-wide text-white/90"
         >
           The future of technology starts here
         </h1>
         <p
-          class="relative my-4 text-xs  text-white/80 leading-4"
+          class="relative my-4 text-[clamp(12px,2vw,15px)]  text-white/80 leading-4"
         >
           Register for the conference and join experts, innovators, and
           technology enthusiasts shaping the future of AI and robotics.
@@ -442,7 +442,7 @@ const errorText =
         <button
           type="submit"
           :disabled="isSubmitting || showSpinner || !terms"
-          class="group relative flex items-center justify-center bg-gradient-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% hover:bg-[#5e9463] disabled:opacity-90 disabled:cursor-not-allowed text-white py-4 rounded-xl text-base sm:text-lg transition"
+          class="group relative flex items-center justify-center bg-linear-to-r from-[#3ac2a9] via-[#2c9380] via-30% to-[#198773] to-150% hover:bg-[#5e9463] disabled:opacity-90 disabled:cursor-not-allowed text-white py-4 rounded-xl text-base sm:text-lg transition"
         >
           <div class="flex items-center justify-center gap-2">
             <span

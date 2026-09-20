@@ -161,51 +161,51 @@ const cardVariants = {
             class="relative h-auto w-full flex flex-col items-start justify-start mx-auto"
           >
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] h-full w-full gap-y-1 mx-auto"
+              class="relative flex flex-col items-center justify-center skew-x-[-19deg] h-full w-full gap-y-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1"
+                class="relative aspect-4/3 flex justify-center h-full w-full gap-1"
               >
                 <div
-                  class="relative w-[20%] rounded-[1.5px] bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative w-[20%] rounded-[1.5px] bg-linear-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute flex items-center justify-start bottom-[10%] left-0 right-0 text-[clamp(2px,1vw,12px)] font-roboto font-thin text-white/80 text-nowrap -rotate-90 -skew-x-[19deg]"
+                    class="absolute flex items-center justify-start bottom-[10%] left-0 right-0 text-[clamp(2px,1vw,12px)] font-roboto font-thin text-white/80 text-nowrap -rotate-90 skew-x-[-19deg]"
                   >
                     {{ speaker.alt }}
                   </div>
                 </div>
                 <div
-                  class="relative w-full overflow-hidden rounded-[1.5px] bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative w-full overflow-hidden rounded-[1.5px] bg-linear-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.src"
                     :alt="speaker.alt"
-                    class="absolute object-cover h-full w-full right-[0.4vw] -bottom-0 skew-x-[19deg]"
+                    class="absolute object-cover h-full w-full right-[0.4vw] bottom-0 skew-x-19"
                   />
                 </div>
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative aspect-[4/3] left-[19%] h-full w-full flex justify-center gap-1"
+                class="relative aspect-4/3 left-[19%] h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax-y="300"
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                  class="relative w-full overflow-hidden rounded-sm bg-linear-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.robot"
                     :alt="speaker.robotAlt"
-                    class="absolute object-cover h-[90%] w-full -bottom-0 skew-x-[19deg]"
+                    class="absolute object-cover h-[90%] w-full bottom-0 skew-x-19"
                   />
                 </div>
                 <div
                   data-swiper-parallax-y="-1200"
-                  class="relative w-[20%] h-full rounded-[1.5px] bg-gradient-to-t from-[#60827d] to-[#246057]"
+                  class="relative w-[20%] h-full rounded-[1.5px] bg-linear-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-[10%] left-0 right-0 text-[clamp(2px,1vw,12px)] font-roboto text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                    class="absolute bottom-[10%] left-0 right-0 text-[clamp(2px,1vw,12px)] font-roboto text-white/80 text-nowrap skew-x-[-19deg] -rotate-90"
                   >
                     {{ speaker.robotAlt }}
                   </div>
@@ -255,53 +255,53 @@ const cardVariants = {
             :custom="index"
           >
             <div
-              class="relative flex flex-col items-center justify-center -skew-x-[19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
+              class="relative flex flex-col items-center justify-center skew-x-[-19deg] max-w-[60vw] h-full w-full gap-1 mx-auto"
             >
               <!-- Вверхняя панель -->
               <div
-                class="relative aspect-[4/3] flex justify-center h-full w-full gap-1 -left-5"
+                class="relative aspect-4/3 flex justify-center h-full w-full gap-1 -left-5"
               >
                 <div
                   data-swiper-parallax-y="1200"
-                  class="relative w-[14%] rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative w-[14%] rounded-sm bg-linear-to-b from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-4 left-0 right-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto font-extralight text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                    class="absolute bottom-4 left-0 right-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto font-extralight text-white/80 text-nowrap skew-x-[-19deg] -rotate-90"
                   >
                     {{ speaker.alt }}
                   </div>
                 </div>
                 <div
                   data-swiper-parallax-y="-300"
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-b from-[#60827d] to-[#246057]"
+                  class="relative w-full overflow-hidden rounded-sm bg-linear-to-b from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.src"
                     :alt="speaker.alt"
-                    class="absolute object-cover h-full w-full right-3 -bottom-0 skew-x-[19deg]"
+                    class="absolute object-cover h-full w-full right-3 bottom-0 skew-x-19"
                   />
                 </div>
               </div>
               <!-- Нижняя панель -->
               <div
-                class="relative aspect-[4/3] left-4 h-full w-full flex justify-center gap-1"
+                class="relative aspect-4/3 left-4 h-full w-full flex justify-center gap-1"
               >
                 <div
                   data-swiper-parallax-y="300"
-                  class="relative w-full overflow-hidden rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                  class="relative w-full overflow-hidden rounded-sm bg-linear-to-t from-[#60827d] to-[#246057]"
                 >
                   <NuxtImg
                     :src="speaker.robot"
                     :alt="speaker.robotAlt"
-                    class="absolute object-cover h-[90%] w-full right-1 -bottom-0 skew-x-[19deg]"
+                    class="absolute object-cover h-[90%] w-full right-1 bottom-0 skew-x-19"
                   />
                 </div>
                 <div
                   data-swiper-parallax-y="-1200"
-                  class="relative w-[14%] h-full rounded-sm bg-gradient-to-t from-[#60827d] to-[#246057]"
+                  class="relative w-[14%] h-full rounded-sm bg-linear-to-t from-[#60827d] to-[#246057]"
                 >
                   <div
-                    class="absolute bottom-4 right-0 left-0 -translate-x-0 -translate-y-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto font-extralight text-white/80 text-nowrap -skew-x-[19deg] -rotate-90"
+                    class="absolute bottom-4 right-0 left-0 translate-x-0 translate-y-0 text-[clamp(0.9rem,5vw,1.2rem)] font-roboto font-extralight text-white/80 text-nowrap skew-x-[-19deg] -rotate-90"
                   >
                     {{ speaker.robotAlt }}
                   </div>
@@ -313,14 +313,14 @@ const cardVariants = {
         <!-- Arrows -->
         <button
           type="button"
-          class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-[3.5rem] items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
+          class="sm:hidden speakers-prev absolute -left-2 top-1/2 z-10 flex h-16 w-9 -translate-y-14 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
           aria-label="Previous slide"
         >
           ‹
         </button>
         <button
           type="button"
-          class="sm:hidden speakers-next absolute -right-2 top-1/2 z-10 flex h-16 w-9 -translate-y-[3.5rem] items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
+          class="sm:hidden speakers-next absolute -right-2 top-1/2 z-10 flex h-16 w-9 -translate-y-14 items-center justify-center rounded-md bg-zinc-600 text-white/90 text-2xl"
           aria-label="Next slide"
         >
           ›
@@ -380,7 +380,7 @@ const cardVariants = {
               duration: 0.2,
             }"
             type="button"
-            class="group flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-gradient-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
+            class="group flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-linear-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
           >
             <NuxtLink
               to="/contacts"
@@ -390,7 +390,7 @@ const cardVariants = {
             </NuxtLink>
 
             <span
-              class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+              class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
             ></span>
           </motion.button>
         </motion.div>
