@@ -126,25 +126,16 @@ const cardVariants = {
       </motion.div>
 
       <!-- Decktop -->
-      <div class="relative max-w-7xl w-full hidden md:flex px-4">
+      <div class="relative max-w-7xl w-full hidden md:flex pl-[6vw]">
         <motion.div
-          :initial="{ opacity: 0 }"
-          :whileInView="{ opacity: 1 }"
-          :inViewOptions="{ once: true, amount: 0.25 }"
-        >
-          <div
-            className="line absolute left-0 bottom-0  h-1/2 w-0.5  bg-linear-0 from-[#303030]  to-white/80 border/ pointer-events-none "
-          >
-            <!-- <NuxtImg src="/images/Rectangle.svg" alt="Line"></NuxtImg> -->
-          </div>
-          <div
-            className="line absolute top-0 left-0 h-1/2 w-0.5  bg-linear-0 from-white/80  to-[#303030] pointer-events-none "
-          ></div>
-        </motion.div>
+          class="line absolute left-[3vw] top-0 h-full w-[0.1vw] bg-linear-to-b from-[#303030] via-gray-300 to-[#303030] pointer-events-none origin-top"
+          :initial="{ scaleY: 0 }"
+          :animate="{ scaleY: 1 }"
+          :transition="{ duration: 0.8, ease: 'easeOut' }"
+        ></motion.div>
         <div
           class="relative w-full flex flex-col items-start justify-center gap-[3vw]"
         >
-        
           <motion.div
             v-for="(speaker, index) in speakers"
             :key="speaker.src"
@@ -153,62 +144,78 @@ const cardVariants = {
             initial="hidden"
             whileInView="visible"
             :inViewOptions="{ once: true, amount: 0.25 }"
-            class="relative h-[8vw] w-full flex items-start justify-center mx-auto gap-[0.3vw] pl-5"
+            :transition="{
+              duration: 0.5,
+              ease: 'easeOut',
+              delay: 0.08,
+            }"
+            class="relative w-full flex flex-col items-start justify-start mx-auto"
           >
-            <!-- Точка -->
-            <!-- <div 
-              class="relative flex justify-center items-center -left-9 -bottom-0"
-            >
-              <div class="absolute w-5 h-5 rounded-full bg-zinc-300" />
-              <div class="absolute w-4 h-4 rounded-full bg-zinc-700" />
-              <div class="absolute w-2 h-2 rounded-full bg-zinc-300" />
-            </div> -->
-            <!-- Линия-разделитель между карточками (не рендерим после последней) -->
-            <div
-              v-if="index < speakers.length - 1"
-              class="absolute left-[2vw] bottom-[-1.5vw] w-[45%] h-px bg-linear-to-r from-white/60 to-transparent pointer-events-none "
-            >
-            <div 
-              class="absolute flex justify-center items-center -left-11 bottom-0"
-            >
-              <div class="absolute w-5 h-5 rounded-full bg-zinc-300" />
-              <div class="absolute w-4 h-4 rounded-full bg-zinc-700" />
-              <div class="absolute w-2 h-2 rounded-full bg-zinc-300" />
-            </div>
-              <span
-                class="absolute -left-0.5 -top-0.75 w-1.5 h-1.5 rounded-full bg-white/80"
-              ></span>
-            </div>
             <!-- Фото панель -->
-            <div
-              class="relative max-w-[12vw] w-full h-full flex items-center justify-center"
-            >
+            <div class="relative flex justify-start items-start gap-[0.2vw]">
               <div
-                class="relative rounded-xs w-full h-full overflow-hidden bg-linear-to-b from-[#60827d] to-[#246057]"
+                class="relative w-[15vw] h-full flex items-center justify-center"
               >
-                <NuxtImg
-                  :src="speaker.src"
-                  :alt="speaker.alt"
-                  class="absolute object-cover h-full w-auto bottom-0"
-                />
+                <div
+                  class="relative rounded-xs w-full h-full bg-linear-to-b from-[#60827d] to-[#246057]"
+                >
+                  <NuxtImg
+                    :src="speaker.src"
+                    :alt="speaker.alt"
+                    class="absolute object-cover w-auto h-full bottom-0"
+                  />
+                </div>
+              </div>
+              <!-- Описание панель -->
+              <div
+                class="relative h-[calc(7vw+10px)] w-full flex flex-col justify-center items-start rounded-xs bg-linear-to-r from-[#5f5f5f] to-[#303030] px-[1vw]"
+              >
+                <div
+                  class="relative flex flex-col items-start text-start font-display text-[calc(1vw+3px)] leading-[110%] text-white/80"
+                >
+                  {{ speaker.alt }} <br />
+                  {{ speaker.role }}
+                </div>
+                <div
+                  class="relative mt-[1%] text-start font-roboto text-[clamp(4px,1vw,14px)] text-balance leading-[110%] text-white/80"
+                >
+                  {{ speaker.description }}
+                </div>
               </div>
             </div>
-            <!-- Описание панель -->
-            <div
-              class="relative h-full w-full flex flex-col justify-center items-start rounded-xs bg-linear-to-r from-[#5f5f5f] to-[#303030] px-[1vw] overflow-hidden"
+            <!-- Линия-разделитель между карточками (не рендерим после последней) -->
+            <motion.div
+              :initial="{x: 50, opacity: 0 }"
+              :whileInView="{ x: 0, opacity: 1 }"
+              :inViewOptions="{ once: true, amount: 0.25 }"
+              :transition="{ duration: 0.3, ease: 'easeOut', delay: 0.5 }"
+              v-if="index < speakers.length - 1"
+              class="relative left-0 w-[45%] top-[1.5vw] h-px bg-linear-to-r from-gray-300 to-transparent pointer-events-none"
             >
-              <div
-                class="relative flex flex-col items-start text-start font-display text-[clamp(10px,1.5vw,25px)] leading-[110%] text-white/80"
+              <span
+                class="absolute left-0 top-1/2 w-[calc(0.5vw+0.5px)] h-[calc(0.5vw+0.5px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-300"
+              ></span>
+
+              <motion.div
+                :initial="{x: -50, scale: 0, opacity: 0 }"
+                :whileInView="{x: 0, scale: 1, opacity: 1 }"
+                :inViewOptions="{ once: true, amount: 0.25 }"
+                :transition="{
+                  ease: 'easeOut',
+                  duration: 0.3,
+                  delay: 0.5,
+                }"
+                v-if="index < speakers.length - 1"
+                class="absolute left-0 top-1/2 translate-x-[-3vw] -translate-y-1/2 origin-center"
               >
-                {{ speaker.alt }} <br />
-                {{ speaker.role }}
-              </div>
-              <div
-                class="relative mt-[1%] text-start font-roboto text-[clamp(4px,1vw,14px)] text-balance leading-[110%] text-white/80"
-              >
-                {{ speaker.description }}
-              </div>
-            </div>
+                <div
+                  class="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 w-[calc(1vw+5px)] h-[calc(1vw+5px)] rounded-full bg-[#303030] border-[calc(0.1vw+1px)] border-gray-300"
+                ></div>
+                <div
+                  class="absolute w-1.5 h-1.5 rounded-full bg-gray-300 left-0 top-0 -translate-x-1/2 -translate-y-1/2"
+                ></div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
