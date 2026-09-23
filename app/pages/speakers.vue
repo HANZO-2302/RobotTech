@@ -188,7 +188,7 @@ const cardVariants = {
               :initial="{x: 50, opacity: 0 }"
               :whileInView="{ x: 0, opacity: 1 }"
               :inViewOptions="{ once: true, amount: 0.25 }"
-              :transition="{ duration: 0.3, ease: 'easeOut', delay: 0.5 }"
+              :transition="{ duration: 0.3, ease: 'easeOut', delay: index * 0.25 }"
               v-if="index < speakers.length - 1"
               class="relative left-0 w-[45%] top-[1.5vw] h-px bg-linear-to-r from-gray-300 to-transparent pointer-events-none"
             >
@@ -203,7 +203,7 @@ const cardVariants = {
                 :transition="{
                   ease: 'easeOut',
                   duration: 0.3,
-                  delay: 0.5,
+                  delay: index * 0.25,
                 }"
                 v-if="index < speakers.length - 1"
                 class="absolute left-0 top-1/2 translate-x-[-3vw] -translate-y-1/2 origin-center"
