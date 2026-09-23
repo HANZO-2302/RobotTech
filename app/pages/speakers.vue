@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
+import { Dialog, DialogPanel } from "@headlessui/vue";
 
 const speakers = [
   {
@@ -54,6 +55,18 @@ const speakers = [
       "Leads Chinese electric vehicle manufacturer XPeng Motors, developing EVs and AI technologies. Actively positions XPeng IRON robots and flying cars as the next major market, estimating robotics potential at tens of trillions of dollars.",
   },
 ];
+
+const isOpen = ref(false);
+const activeSpeaker = ref<(typeof speakers)[number] | null>(null);
+
+function openSpeaker(speaker: (typeof speakers)[number]) {
+  activeSpeaker.value = speaker;
+  isOpen.value = true;
+}
+
+function closeDialog() {
+  isOpen.value = false;
+}
 
 const sectionVariants = {
   hidden: {
@@ -185,20 +198,24 @@ const cardVariants = {
             </div>
             <!-- Линия-разделитель между карточками (не рендерим после последней) -->
             <motion.div
-              :initial="{x: 50, opacity: 0 }"
+              :initial="{ x: 50, opacity: 0 }"
               :whileInView="{ x: 0, opacity: 1 }"
               :inViewOptions="{ once: true, amount: 0.25 }"
-              :transition="{ duration: 0.3, ease: 'easeOut', delay: index * 0.25 }"
+              :transition="{
+                duration: 0.3,
+                ease: 'easeOut',
+                delay: index * 0.25,
+              }"
               v-if="index < speakers.length - 1"
-              class="relative left-0 w-[45%] top-[1.5vw] h-px bg-linear-to-r from-gray-300 to-transparent pointer-events-none"
+              class="relative translate-x-0 w-[45%] top-[1.5vw] h-px bg-linear-to-r from-gray-300 to-transparent pointer-events-none"
             >
               <span
                 class="absolute left-0 top-1/2 w-[calc(0.5vw+0.5px)] h-[calc(0.5vw+0.5px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-300"
               ></span>
-
+              <!-- Круги -->
               <motion.div
-                :initial="{x: -50, scale: 0, opacity: 0 }"
-                :whileInView="{x: 0, scale: 1, opacity: 1 }"
+                :initial="{ x: -50, scale: 0, opacity: 0 }"
+                :whileInView="{ x: 0, scale: 1, opacity: 1 }"
                 :inViewOptions="{ once: true, amount: 0.25 }"
                 :transition="{
                   ease: 'easeOut',
@@ -219,6 +236,107 @@ const cardVariants = {
           </motion.div>
         </div>
       </div>
+
+      <!-- Mobile -->
+      <div class="relative w-full flex md:hidden flex-col gap-4 mt-8">
+        <motion.button
+          v-for="(speaker, index) in speakers"
+          :key="speaker.src"
+          :custom="index"
+          :variants="cardVariants"
+          initial="hidden"
+          whileInView="visible"
+          :inViewOptions="{ once: true, amount: 0.25 }"
+          type="button"
+          @click="openSpeaker(speaker)"
+          class="relative w-full flex items-center gap-3 rounded-xs bg-linear-to-r from-[#5f5f5f] to-[#303030] p-3 text-left active:scale-[0.98] transition-transform"
+        >
+          <div
+            class="relative w-20 h-20 shrink-0 rounded-xs overflow-hidden bg-linear-to-b from-[#60827d] to-[#246057]"
+          >
+            <NuxtImg
+              :src="speaker.src"
+              :alt="speaker.alt"
+              class="absolute object-cover w-full h-full bottom-0"
+            />
+          </div>
+          <div class="flex flex-col items-start text-white/85 min-w-0">
+            <span class="font-display text-base leading-tight">{{
+              speaker.alt
+            }}</span>
+            <span
+              class="font-roboto text-xs text-white/60 leading-snug mt-1 line-clamp-2"
+            >
+              {{ speaker.role }}
+            </span>
+          </div>
+        </motion.button>
+      </div>
+
+      <!-- Mobile Dialog -->
+      <Dialog :open="isOpen" @close="closeDialog" class="relative z-50">
+        <AnimatePresence>
+          <motion.div
+            v-if="isOpen"
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :exit="{ opacity: 0 }"
+            :transition="{ duration: 0.7 }"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            aria-hidden="true"
+          />
+        </AnimatePresence>
+
+        <div class="fixed inset-0 flex items-end justify-center px-4">
+          <AnimatePresence >
+            <DialogPanel v-if="isOpen" as="template">
+              <motion.div
+                :initial="{ y: '100%' }"
+                :animate="{ y: 0 }"
+                :exit="{ y: '100%' }"
+                :transition="{ duration: 0.4, ease: 'easeOut' }"
+                class="relative w-full max-h-[85vh] h-auto overflow-y-auto rounded-t-2xl bg-[#232323] pb-8 border-x-2 border-t-2 border-zinc-600/80"
+              >
+                <button
+                  type="button"
+                  @click="closeDialog"
+                  class="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/40 text-white/80"
+                >
+                  ✕
+                </button>
+
+                <div
+                  v-if="activeSpeaker"
+                  class="relative w-full h-[90vw] bg-linear-to-b from-[#60827d] to-[#246057]"
+                >
+                  <NuxtImg
+                    :src="activeSpeaker.src"
+                    :alt="activeSpeaker.alt"
+                    class="absolute object-cover w-full h-full bottom-0"
+                  />
+                </div>
+
+                <div
+                  v-if="activeSpeaker"
+                  class="px-5 pt-5 flex flex-col gap-2 text-white/85"
+                >
+                  <h3 class="font-display text-xl leading-tight">
+                    {{ activeSpeaker.alt }}
+                  </h3>
+                  <p class="font-roboto text-sm text-white/60">
+                    {{ activeSpeaker.role }}
+                  </p>
+                  <p
+                    class="font-roboto text-sm text-white/75 leading-relaxed mt-2"
+                  >
+                    {{ activeSpeaker.description }}
+                  </p>
+                </div>
+              </motion.div>
+            </DialogPanel>
+          </AnimatePresence>
+        </div>
+      </Dialog>
 
       <!-- Bottom CTA -->
       <div class="w-full">
