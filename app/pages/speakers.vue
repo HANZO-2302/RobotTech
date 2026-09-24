@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { motion } from "motion-v";
-import { Dialog, DialogPanel } from "@headlessui/vue";
+import { Dialog, DialogPanel, TransitionRoot } from "@headlessui/vue";
 
 const speakers = [
   {
@@ -55,17 +55,35 @@ const speakers = [
       "Leads Chinese electric vehicle manufacturer XPeng Motors, developing EVs and AI technologies. Actively positions XPeng IRON robots and flying cars as the next major market, estimating robotics potential at tens of trillions of dollars.",
   },
 ];
+// <!-- Mobile Dialog TransitionRoot -->
+// const isOpen = ref(false);
+// const activeSpeaker = ref<(typeof speakers)[number] | null>(null);
+
+// function openSpeaker(speaker: (typeof speakers)[number]) {
+//   activeSpeaker.value = speaker;
+//   isOpen.value = true;
+// }
+
+// function closeDialog() {
+//   isOpen.value = false;
+// }
 
 const isOpen = ref(false);
+const isVisible = ref(false);
 const activeSpeaker = ref<(typeof speakers)[number] | null>(null);
 
 function openSpeaker(speaker: (typeof speakers)[number]) {
   activeSpeaker.value = speaker;
   isOpen.value = true;
+  isVisible.value = true;
 }
 
 function closeDialog() {
-  isOpen.value = false;
+  isVisible.value = false; // запускаем exit-анимацию
+}
+
+function onExitComplete() {
+  isOpen.value = false; // только теперь реально закрываем Dialog
 }
 
 const sectionVariants = {
@@ -78,7 +96,7 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: "easeInOut",
     },
   },
 };
@@ -91,7 +109,7 @@ const cardVariants = {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 0.5, delay: index * 0.08, ease: "easeOut" },
+      transition: { duration: 0.5, delay: index * 0.08, ease: "easeInOut" },
     };
   },
 };
@@ -238,64 +256,75 @@ const cardVariants = {
       </div>
 
       <!-- Mobile -->
-      <div class="relative w-full flex md:hidden flex-col gap-4 mt-8">
-        <motion.button
-          v-for="(speaker, index) in speakers"
-          :key="speaker.src"
-          :custom="index"
-          :variants="cardVariants"
-          initial="hidden"
-          whileInView="visible"
-          :inViewOptions="{ once: true, amount: 0.25 }"
-          type="button"
-          @click="openSpeaker(speaker)"
-          class="relative w-full flex items-center gap-3 rounded-xs bg-linear-to-r from-[#5f5f5f] to-[#303030] p-3 text-left active:scale-[0.98] transition-transform"
-        >
-          <div
-            class="relative w-20 h-20 shrink-0 rounded-xs overflow-hidden bg-linear-to-b from-[#60827d] to-[#246057]"
+      <motion.div
+        :initial="sectionVariants.hidden"
+        :whileInView="sectionVariants.visible"
+        :inViewOptions="{ once: true, amount: 0.25 }"
+      >
+        <div class="relative w-full flex md:hidden flex-col gap-4 mt-8">
+          <motion.button
+            v-for="(speaker, index) in speakers"
+            :key="speaker.src"
+            :initial="{ opacity: 0 }"
+            :animate="{ opacity: 1 }"
+            :inViewOptions="{ once: true, amount: 0.25 }"
+            :transition="{
+              duration: 0.6,
+              delay: index * 0.12,
+              ease: 'easeInOut',
+            }"
+            type="button"
+            @click="openSpeaker(speaker)"
+            class="relative w-full flex items-center gap-3 rounded-xs bg-linear-to-r from-[#5f5f5f] to-[#303030] p-1 text-left active:scale-[0.98] transition-transform"
           >
-            <NuxtImg
-              :src="speaker.src"
-              :alt="speaker.alt"
-              class="absolute object-cover w-full h-full bottom-0"
-            />
-          </div>
-          <div class="flex flex-col items-start text-white/85 min-w-0">
-            <span class="font-display text-base leading-tight">{{
-              speaker.alt
-            }}</span>
-            <span
-              class="font-roboto text-xs text-white/60 leading-snug mt-1 line-clamp-2"
+            <div
+              class="relative w-20 h-20 shrink-0 rounded-xs overflow-hidden bg-linear-to-b from-[#60827d] to-[#246057]"
             >
-              {{ speaker.role }}
-            </span>
-          </div>
-        </motion.button>
-      </div>
+              <NuxtImg
+                :src="speaker.src"
+                :alt="speaker.alt"
+                class="absolute object-cover w-full h-full bottom-0"
+              />
+            </div>
+            <div class="flex flex-col items-start text-white/85 min-w-0">
+              <span class="font-display text-base leading-tight">{{
+                speaker.alt
+              }}</span>
+              <span
+                class="font-roboto text-xs text-white/60 leading-snug mt-1 line-clamp-2"
+              >
+                {{ speaker.role }}
+              </span>
+            </div>
+          </motion.button>
+        </div>
+      </motion.div>
 
       <!-- Mobile Dialog -->
       <Dialog :open="isOpen" @close="closeDialog" class="relative z-50">
         <AnimatePresence>
           <motion.div
             v-if="isOpen"
+            key="overlay"
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :exit="{ opacity: 0 }"
-            :transition="{ duration: 0.7 }"
+            :transition="{ duration: 0.5 }"
             class="fixed inset-0 bg-black/60 backdrop-blur-sm"
             aria-hidden="true"
           />
         </AnimatePresence>
 
-        <div class="fixed inset-0 flex items-end justify-center px-4">
-          <AnimatePresence >
-            <DialogPanel v-if="isOpen" as="template">
+        <div class="fixed inset-0 flex items-end justify-center">
+          <AnimatePresence @after-leave="onExitComplete">
+            <DialogPanel v-if="isVisible" as="template" static>
               <motion.div
+                key="panel"
                 :initial="{ y: '100%' }"
                 :animate="{ y: 0 }"
                 :exit="{ y: '100%' }"
-                :transition="{ duration: 0.4, ease: 'easeOut' }"
-                class="relative w-full max-h-[85vh] h-auto overflow-y-auto rounded-t-2xl bg-[#232323] pb-8 border-x-2 border-t-2 border-zinc-600/80"
+                :transition="{ duration: 0.9, ease: 'backInOut' }"
+                class="relative w-full max-h-[85vh] h-auto overflow-y-auto rounded-t-2xl bg-[#232323] pb-8"
               >
                 <button
                   type="button"
@@ -338,6 +367,80 @@ const cardVariants = {
         </div>
       </Dialog>
 
+      <!-- Mobile Dialog TransitionRoot -->
+      <!-- <TransitionRoot :show="isOpen" as="template">
+        <Dialog @close="closeDialog" class="relative z-50">
+          // Overlay
+          <TransitionChild
+            as="template"
+            enter="duration-500 ease-out"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="duration-500 ease-in"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+          >
+            <div
+              class="fixed inset-0 bg-black/60 backdrop-blur-sm"
+              aria-hidden="true"
+            />
+          </TransitionChild>
+
+          <div class="fixed inset-0 flex items-end justify-center">
+            // Panel
+            <TransitionChild
+              as="template"
+              enter="duration-500 ease-out"
+              enter-from="translate-y-full"
+              enter-to="translate-y-0"
+              leave="duration-500 ease-in"
+              leave-from="translate-y-0"
+              leave-to="translate-y-full"
+            >
+              <DialogPanel
+                class="relative w-full max-h-[85vh] h-auto overflow-y-auto rounded-t-2xl bg-[#232323] pb-8"
+              >
+                <button
+                  type="button"
+                  @click="closeDialog"
+                  class="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/40 text-white/80"
+                >
+                  ✕
+                </button>
+
+                <div
+                  v-if="activeSpeaker"
+                  class="relative w-full h-[90vw] bg-linear-to-b from-[#60827d] to-[#246057]"
+                >
+                  <NuxtImg
+                    :src="activeSpeaker.src"
+                    :alt="activeSpeaker.alt"
+                    class="absolute object-cover w-full h-full bottom-0"
+                  />
+                </div>
+
+                <div
+                  v-if="activeSpeaker"
+                  class="px-5 pt-5 flex flex-col gap-2 text-white/85"
+                >
+                  <h3 class="font-display text-xl leading-tight">
+                    {{ activeSpeaker.alt }}
+                  </h3>
+                  <p class="font-roboto text-sm text-white/60">
+                    {{ activeSpeaker.role }}
+                  </p>
+                  <p
+                    class="font-roboto text-sm text-white/75 leading-relaxed mt-2"
+                  >
+                    {{ activeSpeaker.description }}
+                  </p>
+                </div>
+              </DialogPanel>
+            </TransitionChild>
+          </div>
+        </Dialog>
+      </TransitionRoot> -->
+
       <!-- Bottom CTA -->
       <div class="w-full">
         <motion.div
@@ -375,10 +478,10 @@ const cardVariants = {
             class="group flex justify-center w-full max-w-sm relative overflow-hidden rounded-[5px] bg-linear-to-r from-[#429e90] to-[#286e64] text-left shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
           >
             <NuxtLink
-              to="/speakers"
-              class="relative font-display text-[clamp(1.5rem,2vw,1.5rem)] p-5 uppercase text-white drop-shadow-md text-center w-full"
+              to="/contacts"
+              class="relative font-display text-[clamp(1rem,2vw,1.2rem)] p-5 uppercase text-white drop-shadow-md text-center w-full"
             >
-              View Speakers
+              Register now
 
               <span
                 class="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-white transition-transform duration-150 group-hover:scale-x-100"
