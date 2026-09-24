@@ -323,7 +323,7 @@ const cardVariants = {
                 :initial="{ y: '100%' }"
                 :animate="{ y: 0 }"
                 :exit="{ y: '100%' }"
-                :transition="{ duration: 0.9, ease: 'backInOut' }"
+                :transition="{ duration: 0.6, ease: 'backInOut' }"
                 class="relative w-full max-h-[85vh] h-auto overflow-y-auto rounded-t-2xl bg-[#232323] pb-8"
               >
                 <button
